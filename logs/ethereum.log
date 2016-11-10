@@ -1,0 +1,105 @@
+16:33:27.159 DEBUG [RequestAddCookies]  CookieSpec selected: default
+16:33:27.170 DEBUG [RequestAuthCache]  Auth cache not set in the context
+16:33:27.174 DEBUG [PoolingHttpClientConnectionManager]  Connection request: [route: {s}->https://t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com:443][total kept alive: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+16:33:27.191 DEBUG [PoolingHttpClientConnectionManager]  Connection leased: [id: 0][route: {s}->https://t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com:443][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+16:33:27.194 DEBUG [MainClientExec]  Opening connection {s}->https://t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com:443
+16:33:27.427 DEBUG [DefaultHttpClientConnectionOperator]  Connecting to t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com/52.222.171.76:443
+16:33:27.427 DEBUG [SSLConnectionSocketFactory]  Connecting socket to t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com/52.222.171.76:443 with timeout 0
+16:33:27.525 DEBUG [SSLConnectionSocketFactory]  Enabled protocols: [TLSv1, TLSv1.1, TLSv1.2]
+16:33:27.525 DEBUG [SSLConnectionSocketFactory]  Enabled cipher suites:[TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSV]
+16:33:27.525 DEBUG [SSLConnectionSocketFactory]  Starting handshake
+16:33:27.645 DEBUG [SSLConnectionSocketFactory]  Secure session established
+16:33:27.646 DEBUG [SSLConnectionSocketFactory]   negotiated protocol: TLSv1.2
+16:33:27.646 DEBUG [SSLConnectionSocketFactory]   negotiated cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+16:33:27.646 DEBUG [SSLConnectionSocketFactory]   peer principal: CN=*.execute-api.eu-central-1.amazonaws.com, O="Amazon.com, Inc.", L=Seattle, ST=Washington, C=US
+16:33:27.652 DEBUG [SSLConnectionSocketFactory]   peer alternative names: [*.execute-api.eu-central-1.amazonaws.com]
+16:33:27.652 DEBUG [SSLConnectionSocketFactory]   issuer principal: CN=Symantec Class 3 Secure Server CA - G4, OU=Symantec Trust Network, O=Symantec Corporation, C=US
+16:33:27.655 DEBUG [DefaultHttpClientConnectionOperator]  Connection established 192.168.0.105:41956<->52.222.171.76:443
+16:33:27.656 DEBUG [MainClientExec]  Executing request POST /stage/keystore/b0aeef0f-1afc-4890-bf0f-d55acdbb753a HTTP/1.1
+16:33:27.656 DEBUG [MainClientExec]  Proxy auth state: UNCHALLENGED
+16:33:27.657 DEBUG [headers]  http-outgoing-0 >> POST /stage/keystore/b0aeef0f-1afc-4890-bf0f-d55acdbb753a HTTP/1.1
+16:33:27.657 DEBUG [headers]  http-outgoing-0 >> Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiYWE0MDIyZC0zYWMyLTQ3NzQtODFjNy05ZjVkMjYzMTMyZmUiLCJzdWIiOiJ0ZXN0X3N1YmplY3QiLCJhdWQiOiJhbWJpc2FmZSIsImV4cCI6MTQ3ODc5MjAwNCwianRpIjoiZDY2YzkxNDUtZDg2ZC00NjdhLWJlMmYtYzM3ZDdhZTg1Yjk1In0.v-Ut9vLRS5icoyteC7liKtPloxBEF3jusEtHmrhegc4
+16:33:27.657 DEBUG [headers]  http-outgoing-0 >> Content-Length: 459
+16:33:27.657 DEBUG [headers]  http-outgoing-0 >> Content-Type: application/json
+16:33:27.657 DEBUG [headers]  http-outgoing-0 >> Host: t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com
+16:33:27.657 DEBUG [headers]  http-outgoing-0 >> Connection: Keep-Alive
+16:33:27.658 DEBUG [headers]  http-outgoing-0 >> User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)
+16:33:27.658 DEBUG [headers]  http-outgoing-0 >> Accept-Encoding: gzip,deflate
+16:33:27.658 DEBUG [wire]  http-outgoing-0 >> "POST /stage/keystore/b0aeef0f-1afc-4890-bf0f-d55acdbb753a HTTP/1.1[\r][\n]"
+16:33:27.658 DEBUG [wire]  http-outgoing-0 >> "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiYWE0MDIyZC0zYWMyLTQ3NzQtODFjNy05ZjVkMjYzMTMyZmUiLCJzdWIiOiJ0ZXN0X3N1YmplY3QiLCJhdWQiOiJhbWJpc2FmZSIsImV4cCI6MTQ3ODc5MjAwNCwianRpIjoiZDY2YzkxNDUtZDg2ZC00NjdhLWJlMmYtYzM3ZDdhZTg1Yjk1In0.v-Ut9vLRS5icoyteC7liKtPloxBEF3jusEtHmrhegc4[\r][\n]"
+16:33:27.658 DEBUG [wire]  http-outgoing-0 >> "Content-Length: 459[\r][\n]"
+16:33:27.658 DEBUG [wire]  http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+16:33:27.658 DEBUG [wire]  http-outgoing-0 >> "Host: t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com[\r][\n]"
+16:33:27.658 DEBUG [wire]  http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+16:33:27.659 DEBUG [wire]  http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)[\r][\n]"
+16:33:27.659 DEBUG [wire]  http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+16:33:27.659 DEBUG [wire]  http-outgoing-0 >> "[\r][\n]"
+16:33:27.659 DEBUG [wire]  http-outgoing-0 >> "{"address":"be380f3fee76a19bbd0acc6ad0cb778b8188279f","id":"b0aeef0f-1afc-4890-bf0f-d55acdbb753a","version":0,"crypto":{"public_key":"04cba565cd2b526add6df32d63f3a01be055a4af4309747fd2774ebf9f8861a4ebeaedff68fa33b6f463c39e88b520d1e3c8de66fd10b2f37b2e91a9a63273aa39","salt":"462b0e08-efed-4d51-a167-2f0aab3c6e5a","data":"025645b016d06eeacf9cde62557dd5bda89ecffb4bc9f65430e33aedc3f28836d14fcd2254f5b45152e19b368b39982e","iv":"4b1dbd5319628867e9f7eb7c2cc064ff"}}"
+16:33:36.614 DEBUG [wire]  http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+16:33:36.614 DEBUG [wire]  http-outgoing-0 << "Content-Type: application/json[\r][\n]"
+16:33:36.614 DEBUG [wire]  http-outgoing-0 << "Content-Length: 98[\r][\n]"
+16:33:36.614 DEBUG [wire]  http-outgoing-0 << "Connection: keep-alive[\r][\n]"
+16:33:36.614 DEBUG [wire]  http-outgoing-0 << "Date: Thu, 10 Nov 2016 14:33:36 GMT[\r][\n]"
+16:33:36.614 DEBUG [wire]  http-outgoing-0 << "Access-Control-Allow-Origin: *[\r][\n]"
+16:33:36.614 DEBUG [wire]  http-outgoing-0 << "x-amzn-RequestId: a4dca8dd-a752-11e6-9797-d1a1afd2a31a[\r][\n]"
+16:33:36.614 DEBUG [wire]  http-outgoing-0 << "X-Cache: Miss from cloudfront[\r][\n]"
+16:33:36.614 DEBUG [wire]  http-outgoing-0 << "Via: 1.1 d76fac2b5a2f460a1cbffb76189f59ef.cloudfront.net (CloudFront)[\r][\n]"
+16:33:36.615 DEBUG [wire]  http-outgoing-0 << "X-Amz-Cf-Id: dHnYz2-jht_tE1SPBmeXC3DWgtZMzDwHChdck81ODmmjC7Ewkw2p8A==[\r][\n]"
+16:33:36.615 DEBUG [wire]  http-outgoing-0 << "[\r][\n]"
+16:33:36.615 DEBUG [wire]  http-outgoing-0 << "{"id":"b0aeef0f-1afc-4890-bf0f-d55acdbb753a","address":"be380f3fee76a19bbd0acc6ad0cb778b8188279f"}"
+16:33:36.617 DEBUG [headers]  http-outgoing-0 << HTTP/1.1 200 OK
+16:33:36.617 DEBUG [headers]  http-outgoing-0 << Content-Type: application/json
+16:33:36.617 DEBUG [headers]  http-outgoing-0 << Content-Length: 98
+16:33:36.617 DEBUG [headers]  http-outgoing-0 << Connection: keep-alive
+16:33:36.617 DEBUG [headers]  http-outgoing-0 << Date: Thu, 10 Nov 2016 14:33:36 GMT
+16:33:36.617 DEBUG [headers]  http-outgoing-0 << Access-Control-Allow-Origin: *
+16:33:36.617 DEBUG [headers]  http-outgoing-0 << x-amzn-RequestId: a4dca8dd-a752-11e6-9797-d1a1afd2a31a
+16:33:36.617 DEBUG [headers]  http-outgoing-0 << X-Cache: Miss from cloudfront
+16:33:36.617 DEBUG [headers]  http-outgoing-0 << Via: 1.1 d76fac2b5a2f460a1cbffb76189f59ef.cloudfront.net (CloudFront)
+16:33:36.617 DEBUG [headers]  http-outgoing-0 << X-Amz-Cf-Id: dHnYz2-jht_tE1SPBmeXC3DWgtZMzDwHChdck81ODmmjC7Ewkw2p8A==
+16:33:36.621 DEBUG [MainClientExec]  Connection can be kept alive indefinitely
+16:33:36.633 DEBUG [PoolingHttpClientConnectionManager]  Connection [id: 0][route: {s}->https://t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com:443] can be kept alive indefinitely
+16:33:36.633 DEBUG [PoolingHttpClientConnectionManager]  Connection released: [id: 0][route: {s}->https://t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com:443][total kept alive: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+16:33:36.634 DEBUG [RequestAddCookies]  CookieSpec selected: default
+16:33:36.634 DEBUG [RequestAuthCache]  Auth cache not set in the context
+16:33:36.634 DEBUG [PoolingHttpClientConnectionManager]  Connection request: [route: {s}->https://t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com:443][total kept alive: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+16:33:36.634 DEBUG [PoolingHttpClientConnectionManager]  Connection leased: [id: 0][route: {s}->https://t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com:443][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+16:33:36.634 DEBUG [MainClientExec]  Executing request GET /stage/keystore/b0aeef0f-1afc-4890-bf0f-d55acdbb753a HTTP/1.1
+16:33:36.634 DEBUG [MainClientExec]  Target auth state: UNCHALLENGED
+16:33:36.634 DEBUG [MainClientExec]  Proxy auth state: UNCHALLENGED
+16:33:36.634 DEBUG [headers]  http-outgoing-0 >> GET /stage/keystore/b0aeef0f-1afc-4890-bf0f-d55acdbb753a HTTP/1.1
+16:33:36.634 DEBUG [headers]  http-outgoing-0 >> Host: t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com
+16:33:36.634 DEBUG [headers]  http-outgoing-0 >> Connection: Keep-Alive
+16:33:36.635 DEBUG [headers]  http-outgoing-0 >> User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)
+16:33:36.635 DEBUG [headers]  http-outgoing-0 >> Accept-Encoding: gzip,deflate
+16:33:36.635 DEBUG [wire]  http-outgoing-0 >> "GET /stage/keystore/b0aeef0f-1afc-4890-bf0f-d55acdbb753a HTTP/1.1[\r][\n]"
+16:33:36.635 DEBUG [wire]  http-outgoing-0 >> "Host: t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com[\r][\n]"
+16:33:36.635 DEBUG [wire]  http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+16:33:36.635 DEBUG [wire]  http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)[\r][\n]"
+16:33:36.635 DEBUG [wire]  http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+16:33:36.635 DEBUG [wire]  http-outgoing-0 >> "[\r][\n]"
+16:33:36.788 DEBUG [wire]  http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+16:33:36.788 DEBUG [wire]  http-outgoing-0 << "Content-Type: application/json[\r][\n]"
+16:33:36.788 DEBUG [wire]  http-outgoing-0 << "Content-Length: 459[\r][\n]"
+16:33:36.788 DEBUG [wire]  http-outgoing-0 << "Connection: keep-alive[\r][\n]"
+16:33:36.788 DEBUG [wire]  http-outgoing-0 << "Date: Thu, 10 Nov 2016 14:33:36 GMT[\r][\n]"
+16:33:36.789 DEBUG [wire]  http-outgoing-0 << "Access-Control-Allow-Origin: *[\r][\n]"
+16:33:36.789 DEBUG [wire]  http-outgoing-0 << "x-amzn-RequestId: aa3585f3-a752-11e6-9d94-ff7fc32ee89a[\r][\n]"
+16:33:36.789 DEBUG [wire]  http-outgoing-0 << "X-Cache: Miss from cloudfront[\r][\n]"
+16:33:36.789 DEBUG [wire]  http-outgoing-0 << "Via: 1.1 d76fac2b5a2f460a1cbffb76189f59ef.cloudfront.net (CloudFront)[\r][\n]"
+16:33:36.789 DEBUG [wire]  http-outgoing-0 << "X-Amz-Cf-Id: 5liHo6RMeE0Uk6Dd44fieUWB6X3C8I472NziYDTizdJOcZNW1KJQMg==[\r][\n]"
+16:33:36.789 DEBUG [wire]  http-outgoing-0 << "[\r][\n]"
+16:33:36.789 DEBUG [wire]  http-outgoing-0 << "{"address":"be380f3fee76a19bbd0acc6ad0cb778b8188279f","id":"b0aeef0f-1afc-4890-bf0f-d55acdbb753a","version":0,"crypto":{"iv":"4b1dbd5319628867e9f7eb7c2cc064ff","data":"025645b016d06eeacf9cde62557dd5bda89ecffb4bc9f65430e33aedc3f28836d14fcd2254f5b45152e19b368b39982e","public_key":"04cba565cd2b526add6df32d63f3a01be055a4af4309747fd2774ebf9f8861a4ebeaedff68fa33b6f463c39e88b520d1e3c8de66fd10b2f37b2e91a9a63273aa39","salt":"462b0e08-efed-4d51-a167-2f0aab3c6e5a"}}"
+16:33:36.789 DEBUG [headers]  http-outgoing-0 << HTTP/1.1 200 OK
+16:33:36.789 DEBUG [headers]  http-outgoing-0 << Content-Type: application/json
+16:33:36.789 DEBUG [headers]  http-outgoing-0 << Content-Length: 459
+16:33:36.789 DEBUG [headers]  http-outgoing-0 << Connection: keep-alive
+16:33:36.789 DEBUG [headers]  http-outgoing-0 << Date: Thu, 10 Nov 2016 14:33:36 GMT
+16:33:36.789 DEBUG [headers]  http-outgoing-0 << Access-Control-Allow-Origin: *
+16:33:36.789 DEBUG [headers]  http-outgoing-0 << x-amzn-RequestId: aa3585f3-a752-11e6-9d94-ff7fc32ee89a
+16:33:36.789 DEBUG [headers]  http-outgoing-0 << X-Cache: Miss from cloudfront
+16:33:36.789 DEBUG [headers]  http-outgoing-0 << Via: 1.1 d76fac2b5a2f460a1cbffb76189f59ef.cloudfront.net (CloudFront)
+16:33:36.789 DEBUG [headers]  http-outgoing-0 << X-Amz-Cf-Id: 5liHo6RMeE0Uk6Dd44fieUWB6X3C8I472NziYDTizdJOcZNW1KJQMg==
+16:33:36.790 DEBUG [MainClientExec]  Connection can be kept alive indefinitely
+16:33:36.790 DEBUG [PoolingHttpClientConnectionManager]  Connection [id: 0][route: {s}->https://t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com:443] can be kept alive indefinitely
+16:33:36.790 DEBUG [PoolingHttpClientConnectionManager]  Connection released: [id: 0][route: {s}->https://t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com:443][total kept alive: 1; route allocated: 1 of 2; total allocated: 1 of 20]

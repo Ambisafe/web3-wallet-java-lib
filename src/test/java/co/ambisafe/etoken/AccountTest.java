@@ -12,10 +12,30 @@ public class AccountTest {
         // generate new account
         Account account = Account.generate(password);
         System.out.println("Account:\n" + account);
+    }
+
+    @Test
+    public void decryptPrivateKey_success() {
+        String password = "Ambisafe";
+
+        // generate new account
+        Account account = Account.generate(password);
 
         // get private key hex
         String privateKeyHex = account.getPrivateKeyHex(password);
         System.out.println(privateKeyHex);
+    }
+
+    @Test(expected = CryptoException.class)
+    public void decryptPrivateKey_error() {
+        String password = "Ambisafe";
+
+        // generate new account
+        Account account = Account.generate(password);
+
+        // get private key hex
+        String wrongPassword = "Wrong";
+        String privateKeyHex = account.getPrivateKeyHex(wrongPassword);
     }
 
     @Test

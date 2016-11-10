@@ -73,7 +73,7 @@ public class AccountsTest {
         String secret = "vjuEX8xUeAtiA2qSGE+vw/9K/7Tdb1Alg7mg8fgIZ8E=";
 
         Tenant tenant = new Tenant(tenantId, secret);
-        String token = tenant.getJwtToken("test_subject");
+        String token = tenant.getJwtToken("storage");
         System.out.println("Token: " + token);
 
         String password = "Ambisafe";
@@ -89,10 +89,10 @@ public class AccountsTest {
 
         Tenant tenant = new Tenant(tenantId, secret);
         String token = tenant.getJwtToken("test_subject");
-        System.out.println("Token: " + token);
 
         String password = "Ambisafe";
         Account account = Account.generate(password);
+        System.out.println(account.getPrivateKeyHex(password));
 
         Keystore.saveAccount(token, account);
 
