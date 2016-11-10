@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.ethereum:leveldbjni-all:1.18.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/ethereum/leveldbjni-all/1.18.2/leveldbjni-all-1.18.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/ethereum/leveldbjni-all/1.18.2/leveldbjni-all-1.18.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/ethereum/leveldbjni-all/1.18.2/leveldbjni-all-1.18.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
