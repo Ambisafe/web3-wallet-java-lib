@@ -2,10 +2,8 @@ package co.ambisafe.etoken;
 
 import co.ambisafe.etoken.exception.CryptoException;
 import co.ambisafe.etoken.imports.ECKey;
-import co.ambisafe.etoken.model.Account;
-import co.ambisafe.etoken.model.Tenant;
-import co.ambisafe.etoken.service.AccountService;
 import co.ambisafe.etoken.service.Keystore;
+import co.ambisafe.etoken.service.Tenant;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
 import org.junit.Test;
@@ -24,7 +22,7 @@ public class AccountsTest {
     public void containerDecryption_success() {
         String password = "Ambisafe";
 
-        Account account = AccountService.generate(password);
+        Account account = Account.generate(password);
 
         byte[] privateKey = account.getPrivateKey(password);
         ECKey derived = ECKey.fromPrivate(privateKey);
@@ -38,7 +36,7 @@ public class AccountsTest {
         String password = "Ambisafe";
         String wrongPassword = "Ambisafe_test";
 
-        Account account = AccountService.generate(password);
+        Account account = Account.generate(password);
         account.getPrivateKey(wrongPassword);
     }
 
@@ -47,7 +45,7 @@ public class AccountsTest {
         String oldPassword = "old";
         String newPassword = "new";
 
-        Account account = AccountService.generate(oldPassword);
+        Account account = Account.generate(oldPassword);
         String privateKeyWithOldPass = account.getPrivateKeyHex(oldPassword);
 
         account.changePassword(oldPassword, newPassword);
@@ -79,7 +77,7 @@ public class AccountsTest {
         System.out.println("Token: " + token);
 
         String password = "Ambisafe";
-        Account account = AccountService.generate(password);
+        Account account = Account.generate(password);
 
         Keystore.saveAccount(token, account);
     }
@@ -94,7 +92,7 @@ public class AccountsTest {
         System.out.println("Token: " + token);
 
         String password = "Ambisafe";
-        Account account = AccountService.generate(password);
+        Account account = Account.generate(password);
 
         Keystore.saveAccount(token, account);
 

@@ -1,7 +1,8 @@
-package co.ambisafe.etoken.model;
+package co.ambisafe.etoken;
 
 import co.ambisafe.etoken.exception.CryptoException;
 import co.ambisafe.etoken.utils.CryptoUtils;
+import org.ethereum.crypto.ECKey;
 import org.spongycastle.util.encoders.Hex;
 
 public class Account {
@@ -10,6 +11,22 @@ public class Account {
     private Container container;
     private String id;
     private int version;
+
+    public static Account generate(String password) {
+        String salt = CryptoUtils.getUuid();
+        String id = CryptoUtils.getUuid();
+        byte[] iv = CryptoUtils.getRandomIv();
+
+        ECKey ecKey = new ECKey();
+        byte[] containerData = CryptoUtils.encryptData(ecKey.getPrivKeyBytes(), iv, salt, password);
+
+        String address = Hex.toHexString(ecKey.getAddress());
+        byte[] publicKey = ecKey.getPubKey();
+
+        Container container = new Container(containerData, iv, publicKey, salt);
+
+        return new Account(address, container, id, 0);
+    }
 
     public Account(String address, Container container, String id, int version) {
         this.address = address;
@@ -60,5 +77,15 @@ public class Account {
         container = new Container(encryptedPrivateKey, iv, container.getPublicKey(), salt);
         version += 1;
         id = CryptoUtils.getUuid();
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"address\":\"" + address + '\"' +
+                ", \"container\":" + container +
+                ", \"id\":\"" + id + '\"' +
+                ", \"version\":\"" + version + '\"' +
+                '}';
     }
 }

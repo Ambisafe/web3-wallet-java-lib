@@ -1,8 +1,8 @@
 package co.ambisafe.etoken.service;
 
 import co.ambisafe.etoken.exception.ETokenException;
-import co.ambisafe.etoken.model.Account;
-import co.ambisafe.etoken.model.Container;
+import co.ambisafe.etoken.Account;
+import co.ambisafe.etoken.Container;
 import com.auth0.jwt.internal.org.bouncycastle.util.encoders.Hex;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -87,7 +87,7 @@ public class Keystore {
         }
     }
 
-    public static String getAccountJson(Account account) throws JsonProcessingException {
+    private static String getAccountJson(Account account) throws JsonProcessingException {
         Container container = account.getContainer();
         Map<String, Object> crypto = new HashMap<>();
         crypto.put("data", container.getDataHex());

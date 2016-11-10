@@ -3,7 +3,7 @@ package co.ambisafe.etoken.utils;
 import co.ambisafe.etoken.exception.CryptoException;
 import co.ambisafe.etoken.imports.AesCbcCrypto;
 import co.ambisafe.etoken.imports.PBKDF2SHA512;
-import co.ambisafe.etoken.model.Container;
+import co.ambisafe.etoken.Container;
 
 import java.security.SecureRandom;
 import java.util.Random;

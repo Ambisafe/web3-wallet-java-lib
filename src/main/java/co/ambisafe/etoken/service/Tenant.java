@@ -1,4 +1,4 @@
-package co.ambisafe.etoken.model;
+package co.ambisafe.etoken.service;
 
 import co.ambisafe.etoken.utils.CryptoUtils;
 import com.auth0.jwt.JWTSigner;
