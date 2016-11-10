@@ -50,3 +50,69 @@ account.changePassword(oldPassword, newPassword);
 >**NOTICE**: if wrong password was specified, CryptoException will be thrown.
 
 This action reecrypts container with new password, generates new unique **id** and increment **version** by one.
+
+## Ambisafe services
+### Tenant and JWT tokens
+To deal with Ambisafe services you need to generate JWT token with right subject for request authorization.
+To generate new one you need to specify your tenant **key**, **secret** and target service **subject**:
+```java
+String key = "dcc4732d-3ac2-81c7-4074-3132fe9f5d26";
+String secret = "K8gTgvZ+eqIiAbE1l8x/7GXAwE/f792utdAjg8vSUmE=";
+String subject = "some_subject";
+
+Tenant tenant = new Tenant(key, secret);
+String jwtToken = tenant.getJwtToken(subject);
+// eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJkY2M0NzMyZC0zYWMyLTgxYzctNDA3NC0zMTMyZmU5ZjVkMjYiLCJzdWIiOiJzb21lX3N1YmplY3QiLCJhdWQiOiJhbWJpc2FmZSIsImV4cCI6MTQ3ODc5MTIxOSwianRpIjoiMDg5ZjEyN2YtNjI4Yy00NjhkLTlkNGYtNjI5N2RjNTNhMmJhIn0.tHEd6qWi-jJTIGKoPsHz7Olv8wvGwKupxoqgHVywOR8
+```
+Decoded jwt token looks like this:
+```js
+{
+  "iss": "dcc4732d-3ac2-81c7-4074-3132fe9f5d26",
+  "sub": "some_subject",
+  "aud": "ambisafe",
+  "exp": 1478791219,
+  "jti": "089f127f-628c-468d-9d4f-6297dc53a2ba"
+}
+```
+This method generates new jwt token and sign it by your tenant secret key to authorize request on service side.
+
+### Keystore
+This will presist account in Ambisafe Keystore service:
+```java
+// generate account
+String password = "Ambisafe_Pass";
+Account account = Account.generate(password);
+
+// generate jwt token
+String key = "dcc4732d-3ac2-81c7-4074-3132fe9f5d26";
+String secret = "K8gTgvZ+eqIiAbE1l8x/7GXAwE/f792utdAjg8vSUmE=";
+String subject = "some_subject";
+
+Tenant tenant = new Tenant(key, secret);
+String jwtToken = tenant.getJwtToken(subject);
+
+// save account
+Keystore.saveAccount(jwtToken, account);
+```
+
+To retrieve account from Ambisafe Keystore service you need to specify **account id**:
+```java
+// generate account
+String password = "Ambisafe_Pass";
+Account account = Account.generate(password);
+
+// generate jwt token
+String key = "dcc4732d-3ac2-81c7-4074-3132fe9f5d26";
+String secret = "K8gTgvZ+eqIiAbE1l8x/7GXAwE/f792utdAjg8vSUmE=";
+String subject = "some_subject";
+
+Tenant tenant = new Tenant(key, secret);
+String jwtToken = tenant.getJwtToken(subject);
+
+// save account
+Keystore.saveAccount(jwtToken, account);
+
+// retrieve account
+Account accFromKeystore = Keystore.getAccount(account.getId());
+String privateKeyHex = accFromKeystore.getPrivateKeyHex(password);
+```
