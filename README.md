@@ -76,7 +76,7 @@ Decoded jwt token looks like this:
 ```
 This method generates new jwt token and sign it by your tenant secret key to authorize request on service side.
 
-### Keystore
+### Keystore (http://keystore-docs.rtfd.io/)
 This will presist account in Ambisafe Keystore service:
 ```java
 // generate account
@@ -116,6 +116,7 @@ Keystore.saveAccount(jwtToken, account);
 Account accFromKeystore = Keystore.getAccount(account.getId());
 String privateKeyHex = accFromKeystore.getPrivateKeyHex(password);
 ```
+
 ### EToken
 To get your balance specify **address** and asset **symbol**:
 ```java
@@ -134,7 +135,7 @@ BigInteger txCount = AmbisafeNode.getTransactionsCount(address);
 To sent transaction specify **recipient**, **amount** to send, asset **symbol** and private key from account to sign transaction:
 ```java
 String recipient = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
-long amount = 1000;
+String amount = "0.005";
 String symbol = "SP";
 byte[] privateKey = account.getPrivateKey(password);
 
@@ -144,3 +145,47 @@ String txHash = AmbisafeNode.transfer(recipient, amount, symbol, privateKey);
 >**NOTICE**: throws RestClientException/
 
 This action returns hash of the transaction.
+
+### EToken History (http://etoken-history-docs.rtfd.io/)
+To get transactions list by **recipient**:
+```java
+String recipient = "0x60dda47483288e673dc0d522a715ae8eed5d60fd";
+ETokenHistory.TxList txList = ETokenHistory.getTxList(recipient);
+```
+You also can specify additional parameters like key value pair to query some portion of data (see more at http://etoken-history-docs.rtfd.io/#parameters):
+```java
+String recipient = "0x60dda47483288e673dc0d522a715ae8eed5d60fd";
+ETokenHistory.TxList txList = ETokenHistory.getTxList(recipient, "max", "2", "skip", "1");
+```
+
+TxList has three field:
+  - **txList** - list of Tx (transactions) objects;
+  - **total** - total transactions in this page;
+  - **nextRequest** - generated url link for next portion with the same query parameters.
+
+Tx has this structure with all info about transaction:
+```js
+{  
+  "txHash":"0xa13db547691ff1db0e53cef5dcd3b3bdee4d9e04856db65972bcd174ae7d3d4d",
+  "timestamp":"1471671193",
+  "blockNumber":"2104970",
+  "confirmations":"1",
+  "eventName":"TransferToICAP",
+  "from":"0x94afcdba23744dfcfdf007f51550c9881de87038",
+  "reference":"",
+  "value":"1",
+  "to":"0x60dda47483288e673dc0d522a715ae8eed5d60fd",
+  "icap":"XE60KUNKUNASQG47ISFQ",
+  "symbol":"null"
+}
+```
+To get next portion of data just invoke **TxList.requestNextPage** method:
+```java
+String recipient = "0x60dda47483288e673dc0d522a715ae8eed5d60fd";
+ETokenHistory.TxList txList = ETokenHistory.getTxList(recipient, "max", "2", "skip", "1");
+
+if (txList.hasNextPage()) {
+    txList.requestNextPage();
+    // do something with new portion of data
+}
+```
