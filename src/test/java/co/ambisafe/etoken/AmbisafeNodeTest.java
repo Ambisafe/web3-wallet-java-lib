@@ -28,11 +28,11 @@ public class AmbisafeNodeTest {
     }
 
     @Test
-    public void sendTransaction() {
+    public void transfer() {
         Account account = Account.generate("test");
 
         String recipient = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
-        long amount = 1000;
+        String amount = "0.000001";
         String symbol = "CC";
         byte[] privateKey = account.getPrivateKey("test");
 
@@ -45,7 +45,7 @@ public class AmbisafeNodeTest {
     }
 
     @Test
-    public void sendEthTransaction() {
+    public void transferEth() {
         Account account = Account.generate("test");
 
         String recipient = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.apache.http.HttpEntity;
 import org.apache.http.StatusLine;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -20,7 +21,19 @@ public class RestClient {
     private static CloseableHttpClient httpClient = HttpClients.createDefault();
 
     public static Response get(String url) {
-        return null;
+        try {
+            HttpGet httpGet = new HttpGet(url);
+
+            CloseableHttpResponse response = httpClient.execute(httpGet);
+            HttpEntity responseEntity = response.getEntity();
+
+            String body = EntityUtils.toString(responseEntity);
+            JsonNode bodyJson = readTree(body);
+
+            return new Response(response.getStatusLine(), bodyJson);
+        } catch (IOException e) {
+            throw new RestClientException(e);
+        }
     }
 
     public static Response post(String url, String json) throws RestClientException {

@@ -1,5 +1,6 @@
 package co.ambisafe.etoken.service;
 
+import co.ambisafe.etoken.exception.ETokenException;
 import co.ambisafe.etoken.exception.InsufficientFundsException;
 import co.ambisafe.etoken.exception.RestClientException;
 import co.ambisafe.etoken.utils.RestClient;
@@ -64,7 +65,6 @@ public class AmbisafeNode {
         params.put("data", data);
 
         String json = writeObjectAsString(prepareRpcCall("eth_call", params, "pending"));
-        System.out.println(json);
 
         RestClient.Response response = RestClient.post(NODE_URL, json);
         JsonNode body = response.getBody();
@@ -78,19 +78,41 @@ public class AmbisafeNode {
 
     public static String transfer(String recipient, String amount, String symbol, byte[] privateKey)
             throws RestClientException {
-        byte[] encodedData = ETOKEN_TRANSFER.encode(check0x(recipient), amount, symbol.toUpperCase());
-
         ECKey key = ECKey.fromPrivate(privateKey);
         String senderAddress = Hex.toHexString(key.getAddress());
         BigInteger nonce = getTransactionsCount(senderAddress);
 
         BigDecimal baseUnit = new BigDecimal("10").pow(getBaseUnit(symbol).intValue());
         BigInteger newAmount = new BigDecimal(amount).multiply(baseUnit).toBigIntegerExact();
-        BigInteger currentBalance = getBalance(senderAddress, symbol);
 
+        byte[] encodedData = ETOKEN_TRANSFER.encode(check0x(recipient), newAmount, symbol.toUpperCase());
+
+        // check balance
+        BigInteger currentBalance = getBalance(senderAddress, symbol);
         if (currentBalance.compareTo(newAmount) == -1) {
             throw new InsufficientFundsException("Insufficient balance: " + currentBalance);
         }
+
+        // simulate transaction
+        Map<String, Object> params = new HashMap<>();
+        params.put("from", check0x(senderAddress));
+        params.put("to", ETOKEN_CONTRACT_ADDRESS);
+        params.put("gas", check0x(new BigInteger(GAS_LIMIT).toString(16)));
+        params.put("gasPrice", check0x(new BigInteger(GAS_PRICE).toString(16)));
+        params.put("value", check0x(new BigInteger("0").toString(16)));
+        params.put("data", "0x" + Hex.toHexString(encodedData));
+
+        String simulateJson = writeObjectAsString(prepareRpcCall("eth_call", params));
+
+        RestClient.Response simulateResponse = RestClient.post(NODE_URL, simulateJson);
+        JsonNode simulateBody = simulateResponse.getBody();
+
+        String result = simulateBody.path("result").asText();
+        if (result.endsWith("0")) {
+            // tx will fail
+            throw new ETokenException("Simulation failed. Json: " + simulateJson);
+        }
+        // =================
 
         Transaction tx = new Transaction(
                 longToBytesNoLeadZeroes(nonce.longValueExact()),
@@ -106,6 +128,7 @@ public class AmbisafeNode {
         String rawHex = "0x" + Hex.toHexString(tx.getEncoded());
         String json = writeObjectAsString(prepareRpcCall("eth_sendRawTransaction", rawHex));
 
+        // make request
         RestClient.Response response = RestClient.post(NODE_URL, json);
         JsonNode body = response.getBody();
 
@@ -173,7 +196,6 @@ public class AmbisafeNode {
         params.put("data", data);
 
         String json = writeObjectAsString(prepareRpcCall("eth_call", params));
-        System.out.println(json);
 
         RestClient.Response response = RestClient.post(NODE_URL, json);
         JsonNode body = response.getBody();
