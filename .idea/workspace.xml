@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9af9eecc-c1d4-4296-b64e-bca1a0e1a565" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/co/ambisafe/etoken/AccountTest.class" afterPath="$PROJECT_DIR$/target/test-classes/co/ambisafe/etoken/AccountTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/co/ambisafe/etoken/AccountsTest.class" afterPath="$PROJECT_DIR$/target/test-classes/co/ambisafe/etoken/AccountsTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/co/ambisafe/etoken/service/AmbisafeNode.class" afterPath="$PROJECT_DIR$/target/classes/co/ambisafe/etoken/service/AmbisafeNode.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/ethereum.log" afterPath="$PROJECT_DIR$/logs/ethereum.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountTest.java" afterPath="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountsTest.java" afterPath="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java" afterPath="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java" />
     </list>
     <ignored path="web3-wallet-java-lib.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,10 +29,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MainTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/MainTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1152">
+              <caret line="64" column="120" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="120" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AccountsTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountsTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
+            <state relative-caret-position="111">
               <caret line="94" column="26" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -44,31 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tenant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/Tenant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="26" column="29" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AccountTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-606">
-              <caret line="8" column="25" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="25" />
+            <state relative-caret-position="252">
+              <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,11 +63,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Keystore.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/Keystore.java">
+      <file leaf-file-name="AmbisafeNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            <state relative-caret-position="298">
+              <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+              <folding>
+                <element signature="e#10319#10320#0" expanded="true" />
+                <element signature="e#10380#10381#0" expanded="true" />
+                <element signature="e#10433#10434#0" expanded="true" />
+                <element signature="e#10494#10495#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmbisafeNodeTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AmbisafeNodeTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="424">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,7 +155,6 @@
         <option value="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/exception/RestClientException.java" />
         <option value="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/utils/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/utils/RestClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/Keystore.java" />
         <option value="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/model/Account.java" />
         <option value="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/Tenant.java" />
@@ -163,6 +164,8 @@
         <option value="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountsTest.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java" />
+        <option value="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AmbisafeNodeTest.java" />
       </list>
     </option>
   </component>
@@ -218,9 +221,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -341,6 +342,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,111 +368,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/imports" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AccountsTest.saveAndGetAccountFromKeystore">
-    <configuration default="false" name="AccountTest.changePassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="co.ambisafe.etoken.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="web3-wallet-java-lib" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="co.ambisafe.etoken" />
-      <option name="MAIN_CLASS_NAME" value="co.ambisafe.etoken.AccountTest" />
-      <option name="METHOD_NAME" value="changePassword" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AccountTest.decryptPrivateKey_error" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="co.ambisafe.etoken.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="web3-wallet-java-lib" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="co.ambisafe.etoken" />
-      <option name="MAIN_CLASS_NAME" value="co.ambisafe.etoken.AccountTest" />
-      <option name="METHOD_NAME" value="decryptPrivateKey_error" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AccountTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="co.ambisafe.etoken.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="web3-wallet-java-lib" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="co.ambisafe.etoken" />
-      <option name="MAIN_CLASS_NAME" value="co.ambisafe.etoken.AccountTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AccountsTest.generateJwtToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="co.ambisafe.etoken.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="web3-wallet-java-lib" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="co.ambisafe.etoken" />
-      <option name="MAIN_CLASS_NAME" value="co.ambisafe.etoken.AccountsTest" />
-      <option name="METHOD_NAME" value="generateJwtToken" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.AmbisafeNodeTest.sendTransaction">
     <configuration default="false" name="AccountsTest.saveAndGetAccountFromKeystore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -483,6 +382,104 @@
       <option name="PACKAGE_NAME" value="co.ambisafe.etoken" />
       <option name="MAIN_CLASS_NAME" value="co.ambisafe.etoken.AccountsTest" />
       <option name="METHOD_NAME" value="saveAndGetAccountFromKeystore" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AmbisafeNode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="co.ambisafe.etoken.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="co.ambisafe.etoken.service.AmbisafeNode" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="web3-wallet-java-lib" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="AmbisafeNodeTest.sendTransaction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="co.ambisafe.etoken.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="web3-wallet-java-lib" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="co.ambisafe.etoken" />
+      <option name="MAIN_CLASS_NAME" value="co.ambisafe.etoken.AmbisafeNodeTest" />
+      <option name="METHOD_NAME" value="sendTransaction" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AmbisafeNodeTest.getBalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="co.ambisafe.etoken.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="web3-wallet-java-lib" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="co.ambisafe.etoken" />
+      <option name="MAIN_CLASS_NAME" value="co.ambisafe.etoken.AmbisafeNodeTest" />
+      <option name="METHOD_NAME" value="getBalance" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AmbisafeNodeTest.getTransactionsCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="co.ambisafe.etoken.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="web3-wallet-java-lib" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="co.ambisafe.etoken" />
+      <option name="MAIN_CLASS_NAME" value="co.ambisafe.etoken.AmbisafeNodeTest" />
+      <option name="METHOD_NAME" value="getTransactionsCount" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1149,19 +1146,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.AccountTest.changePassword" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.AccountTest.decryptPrivateKey_error" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.AccountTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AccountsTest.generateJwtToken" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AccountsTest.saveAndGetAccountFromKeystore" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.AccountsTest.saveAndGetAccountFromKeystore" />
+      <item index="1" class="java.lang.String" itemvalue="Application.AmbisafeNode" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AmbisafeNodeTest.sendTransaction" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AmbisafeNodeTest.getBalance" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AmbisafeNodeTest.getTransactionsCount" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.AccountsTest.saveAndGetAccountFromKeystore" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AccountsTest.generateJwtToken" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AccountTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AccountTest.decryptPrivateKey_error" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AccountTest.changePassword" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AmbisafeNodeTest.sendTransaction" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AmbisafeNodeTest.getTransactionsCount" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AmbisafeNodeTest.getBalance" />
+        <item index="3" class="java.lang.String" itemvalue="Application.AmbisafeNode" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AccountsTest.saveAndGetAccountFromKeystore" />
       </list>
     </recent_temporary>
   </component>
@@ -1177,32 +1174,12 @@
       <updated>1478519270921</updated>
       <workItem from="1478519274963" duration="12108000" />
       <workItem from="1478609636977" duration="20872000" />
-      <workItem from="1478776583841" duration="5765000" />
+      <workItem from="1478776583841" duration="11512000" />
+      <workItem from="1478858101155" duration="3969000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AccountTest - 2016.11.10 at 16h 12m 53s.xml">
-      <configuration name="AccountTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountTest_changePassword - 2016.11.10 at 16h 02m 38s.xml">
-      <configuration name="AccountTest.changePassword" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountTest_changePassword - 2016.11.10 at 16h 02m 53s.xml">
-      <configuration name="AccountTest.changePassword" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountTest_changePassword - 2016.11.10 at 16h 03m 30s.xml">
-      <configuration name="AccountTest.changePassword" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountTest_decryptPrivateKey_error - 2016.11.10 at 16h 12m 48s.xml">
-      <configuration name="AccountTest.decryptPrivateKey_error" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountTest_generateNewAccount - 2016.11.10 at 15h 32m 49s.xml">
-      <configuration name="AccountTest.generateNewAccount" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountTest_generateNewAccount - 2016.11.10 at 15h 33m 25s.xml">
-      <configuration name="AccountTest.generateNewAccount" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AccountTest_generateNewAccount - 2016.11.10 at 15h 46m 46s.xml">
       <configuration name="AccountTest.generateNewAccount" configurationId="JUnit" />
     </history-entry>
@@ -1212,9 +1189,30 @@
     <history-entry file="AccountsTest_saveAndGetAccountFromKeystore - 2016.11.10 at 16h 33m 37s.xml">
       <configuration name="AccountsTest.saveAndGetAccountFromKeystore" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AmbisafeNodeTest_getBalance - 2016.11.10 at 17h 47m 58s.xml">
+      <configuration name="AmbisafeNodeTest.getBalance" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmbisafeNodeTest_getBalance - 2016.11.11 at 13h 06m 58s.xml">
+      <configuration name="AmbisafeNodeTest.getBalance" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmbisafeNodeTest_getTransactionsCount - 2016.11.11 at 13h 08m 24s.xml">
+      <configuration name="AmbisafeNodeTest.getTransactionsCount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmbisafeNodeTest_getTransactionsCount - 2016.11.11 at 13h 08m 36s.xml">
+      <configuration name="AmbisafeNodeTest.getTransactionsCount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmbisafeNodeTest_sendTransaction - 2016.11.10 at 17h 38m 38s.xml">
+      <configuration name="AmbisafeNodeTest.sendTransaction" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmbisafeNodeTest_sendTransaction - 2016.11.11 at 13h 41m 41s.xml">
+      <configuration name="AmbisafeNodeTest.sendTransaction" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmbisafeNodeTest_sendTransaction - 2016.11.11 at 13h 42m 02s.xml">
+      <configuration name="AmbisafeNodeTest.sendTransaction" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38745000" />
+    <option name="totallyTimeSpent" value="48461000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="24" width="1313" height="744" extended-state="6" />
@@ -1235,7 +1233,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25651145" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1246,6 +1243,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1289,7 +1287,7 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1298,7 +1296,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/imports/EncryptedData.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/imports/LinuxSecureRandom.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/exception/ETokenException.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1410,7 +1407,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1425,7 +1421,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="53" column="15" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1454,7 +1449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1476,7 +1470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-10">
           <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1621,41 +1614,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/MainTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AccountService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/utils/CryptoUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="31" column="36" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="36" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1688,27 +1655,7 @@
         <state relative-caret-position="44">
           <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-606">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="94" column="26" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1718,6 +1665,57 @@
         <state relative-caret-position="54">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/MainTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1152">
+          <caret line="64" column="120" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="120" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="94" column="26" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+          <folding>
+            <element signature="e#10319#10320#0" expanded="true" />
+            <element signature="e#10380#10381#0" expanded="true" />
+            <element signature="e#10433#10434#0" expanded="true" />
+            <element signature="e#10494#10495#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AccountTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AmbisafeNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
