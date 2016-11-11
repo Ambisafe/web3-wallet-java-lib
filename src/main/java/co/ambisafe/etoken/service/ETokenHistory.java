@@ -1,6 +1,7 @@
 package co.ambisafe.etoken.service;
 
 import co.ambisafe.etoken.exception.ETokenException;
+import co.ambisafe.etoken.exception.RestClientException;
 import co.ambisafe.etoken.utils.RestClient;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -14,16 +15,20 @@ public class ETokenHistory {
 
     private static final String BASE_URL ="https://etoken-history.ambisafe.co/";
 
-    public static TxList getTxList(String recipient) {
+    public static TxList getTxList(String recipient, String... params) {
         recipient = check0x(recipient);
 
-        String url = BASE_URL + "/tx/" + recipient;
-        RestClient.Response response = RestClient.get(url);
+        String paramsString = prepareParams(params);
+        String url = BASE_URL + "/tx/" + recipient + paramsString;
 
+        RestClient.Response response = RestClient.get(url);
         JsonNode body = response.getBody();
         long total = body.path("total").asLong();
 
-        TxList txList = new TxList(total, body.path("nextRequest").asText());
+        String nextRequest = body.path("nextRequest").asText();
+        if (nextRequest.equals("null")) nextRequest = null;
+
+        TxList txList = new TxList(total, nextRequest);
 
         ArrayNode result = (ArrayNode) body.path("result");
         for (JsonNode tx : result) {
@@ -56,6 +61,21 @@ public class ETokenHistory {
         return txList;
     }
 
+    private static String prepareParams(String[] params) {
+        int length = params.length;
+        if (length == 0) return "";
+        if (length % 2 != 0) throw new RestClientException("Query params wrong format");
+
+        StringBuilder sb = new StringBuilder("?");
+        for (int i = 0; i < length; i += 2) {
+            String param = params[i];
+            String value = params[i+1];
+            sb.append(param).append('=').append(value).append('&');
+        }
+
+        return sb.toString();
+    }
+
     public static class Tx {
         private String txHash;
         private long timestamp;
@@ -68,6 +88,23 @@ public class ETokenHistory {
         private String to;
         private String icap;
         private String symbol;
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "\"txHash\":\"" + txHash + "\"" +
+                    ", \"timestamp\":\"" + timestamp + "\"" +
+                    ", \"blockNumber\":\"" + blockNumber + "\"" +
+                    ", \"confirmations\":\"" + confirmations + "\"" +
+                    ", \"eventName\":\"" + eventName + "\"" +
+                    ", \"from\":\"" + from + "\"" +
+                    ", \"reference\":\"" + reference + "\"" +
+                    ", \"value\":\"" + value + "\"" +
+                    ", \"to\":\"" + to + "\"" +
+                    ", \"icap\":\"" + icap + "\"" +
+                    ", \"symbol\":\"" + symbol + "\"" +
+                    "}";
+        }
     }
 
     public static class TxList {
@@ -96,10 +133,29 @@ public class ETokenHistory {
             txList.add(tx);
         }
 
+        public boolean hasNextPage() {
+            return nextRequest != null;
+        }
 
-    }
+        public void requestNextPage() {
+            if (nextRequest == null) return;
 
-    public static void main(String[] args) {
-        getTxList("0x60dda47483288e673dc0d522a715ae8eed5d60fd");
+            int last = nextRequest.lastIndexOf('/');
+            String recipientWithParams = nextRequest.substring(last + 1);
+
+            TxList temp = ETokenHistory.getTxList(recipientWithParams);
+            this.total = temp.total;
+            this.txList = temp.txList;
+            this.nextRequest = temp.nextRequest;
+        }
+
+        @Override
+        public String toString() {
+            return "TxList{" +
+                    "total='" + total + '\'' +
+                    ", txList=" + txList +
+                    ", nextRequest=" + nextRequest +
+                    '}';
+        }
     }
 }
