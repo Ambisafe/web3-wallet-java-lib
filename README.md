@@ -116,9 +116,10 @@ Keystore.saveAccount(jwtToken, account);
 Account accFromKeystore = Keystore.getAccount(account.getId());
 String privateKeyHex = accFromKeystore.getPrivateKeyHex(password);
 ```
+
 ### EToken
 To get your balance specify **address** and asset **symbol**:
-```java EToken
+```java
 String address = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
 String symbol = "CC";
 BigInteger balance = AmbisafeNode.getBalance(address, symbol);
