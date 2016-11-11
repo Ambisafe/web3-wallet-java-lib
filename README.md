@@ -116,3 +116,31 @@ Keystore.saveAccount(jwtToken, account);
 Account accFromKeystore = Keystore.getAccount(account.getId());
 String privateKeyHex = accFromKeystore.getPrivateKeyHex(password);
 ```
+### EToken
+To get your balance specify **address** and asset **symbol**:
+```java
+String address = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+String symbol = "CC";
+BigInteger balance = AmbisafeNode.getBalance(address, symbol);
+// 705000
+```
+ To get transactions count for **address**:
+```java
+String address = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+BigInteger txCount = AmbisafeNode.getTransactionsCount(address);
+// 5
+```
+
+To sent transaction specify **recipient**, **amount** to send, asset **symbol** and private key from account to sign transaction:
+```java
+String recipient = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+long amount = 1000;
+String symbol = "SP";
+byte[] privateKey = account.getPrivateKey(password);
+
+String txHash = AmbisafeNode.transfer(recipient, amount, symbol, privateKey);
+// 0x157e70f18e7a6d4f61dd5704a4180adc6f0395ab2a3b31e0e9b34573d1b366d2
+```
+>**NOTICE**: throws RestClientException/
+
+This action returns hash of the transaction.
