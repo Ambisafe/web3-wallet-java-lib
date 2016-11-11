@@ -3,6 +3,7 @@ package co.ambisafe.etoken;
 import co.ambisafe.etoken.exception.RestClientException;
 import co.ambisafe.etoken.service.AmbisafeNode;
 import org.junit.Test;
+import org.springframework.util.Assert;
 
 import java.math.BigInteger;
 
@@ -10,7 +11,8 @@ public class AmbisafeNodeTest {
 
     @Test
     public void getBalance() {
-        String address = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+//        String address = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+        String address = "a085e2f5b4d6e8e611853ad585a1b6c444116ce2";
         String symbol = "CC";
 
         BigInteger balance = AmbisafeNode.getBalance(address, symbol);
@@ -25,11 +27,43 @@ public class AmbisafeNodeTest {
         System.out.println(txCount);
     }
 
-    @Test(expected = RestClientException.class)
+    @Test
     public void sendTransaction() {
-        String recipient = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
-//        ECKey key = ECKey.fromPrivate(Hex.decode("afcccf3e84e9164099e861c0f627f552ec5d152e3c2f0a11cb3efe4a401064c2"));
+        Account account = Account.generate("test");
 
-        String txHash = AmbisafeNode.transfer(recipient, 1000, "CC", new byte[]{});
+        String recipient = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+        long amount = 1000;
+        String symbol = "CC";
+        byte[] privateKey = account.getPrivateKey("test");
+
+        try {
+            String txHash = AmbisafeNode.transfer(recipient, amount, symbol, privateKey);
+        } catch (RestClientException e) {
+            System.out.println("Error: " + e.getMessage());
+            Assert.hasText("Insufficient funds", e.getMessage());
+        }
+    }
+
+    @Test
+    public void sendEthTransaction() {
+        Account account = Account.generate("test");
+
+        String recipient = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+        long amount = 1000;
+        byte[] privateKey = account.getPrivateKey("test");
+
+        try {
+            String txHash = AmbisafeNode.transferEth(recipient, amount, privateKey);
+        } catch (RestClientException e) {
+            System.out.println("Error: " + e.getMessage());
+            Assert.hasText("Insufficient funds", e.getMessage());
+        }
+    }
+
+    @Test
+    public void getBaseUnit() {
+        String symbol = "CC";
+
+        System.out.println(AmbisafeNode.getBaseUnit(symbol));
     }
 }

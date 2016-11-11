@@ -1,5 +1,6 @@
 package co.ambisafe.etoken.service;
 
+import co.ambisafe.etoken.exception.InsufficientFundsException;
 import co.ambisafe.etoken.exception.RestClientException;
 import co.ambisafe.etoken.utils.RestClient;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -8,12 +9,14 @@ import org.ethereum.core.Transaction;
 import org.ethereum.crypto.ECKey;
 import org.spongycastle.util.encoders.Hex;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
 import static co.ambisafe.etoken.utils.Utils.check0x;
 import static co.ambisafe.etoken.utils.Utils.writeObjectAsString;
+import static org.ethereum.util.ByteUtil.bigIntegerToBytes;
 import static org.ethereum.util.ByteUtil.longToBytesNoLeadZeroes;
 
 public class AmbisafeNode {
@@ -28,6 +31,7 @@ public class AmbisafeNode {
     private static final CallTransaction.Contract ETOKEN_CONTRACT = new CallTransaction.Contract(ETOKEN_CONTRACT_ABI);
     private static final CallTransaction.Function ETOKEN_BALANCE_OF = ETOKEN_CONTRACT.getByName("balanceOf");
     private static final CallTransaction.Function ETOKEN_TRANSFER = ETOKEN_CONTRACT.getByName("transfer");
+    private static final CallTransaction.Function ETOKEN_BASE_UNIT = ETOKEN_CONTRACT.getByName("baseUnit");
 
     // setup
     public static void setGasPrice(long gasPrice) {
@@ -72,13 +76,21 @@ public class AmbisafeNode {
         return new BigInteger(body.path("result").asText().substring(2), 16);
     }
 
-    public static String transfer(String recipient, BigInteger amount, String symbol, byte[] privateKey)
+    public static String transfer(String recipient, String amount, String symbol, byte[] privateKey)
             throws RestClientException {
         byte[] encodedData = ETOKEN_TRANSFER.encode(check0x(recipient), amount, symbol.toUpperCase());
 
         ECKey key = ECKey.fromPrivate(privateKey);
         String senderAddress = Hex.toHexString(key.getAddress());
         BigInteger nonce = getTransactionsCount(senderAddress);
+
+        BigDecimal baseUnit = new BigDecimal("10").pow(getBaseUnit(symbol).intValue());
+        BigInteger newAmount = new BigDecimal(amount).multiply(baseUnit).toBigIntegerExact();
+        BigInteger currentBalance = getBalance(senderAddress, symbol);
+
+        if (currentBalance.compareTo(newAmount) == -1) {
+            throw new InsufficientFundsException("Insufficient balance: " + currentBalance);
+        }
 
         Transaction tx = new Transaction(
                 longToBytesNoLeadZeroes(nonce.longValueExact()),
@@ -109,7 +121,68 @@ public class AmbisafeNode {
 
     public static String transfer(String recipient, long amount, String symbol, byte[] privateKey)
             throws RestClientException {
-        return transfer(recipient, new BigInteger(Long.toString(amount)), symbol, privateKey);
+        return transfer(recipient, Long.toString(amount), symbol, privateKey);
+    }
+
+    public static String transferEth(String recipient, BigInteger amount, byte[] privateKey)
+            throws RestClientException {
+        recipient = check0x(recipient);
+
+        ECKey key = ECKey.fromPrivate(privateKey);
+        String senderAddress = Hex.toHexString(key.getAddress());
+        BigInteger nonce = getTransactionsCount(senderAddress);
+
+        Transaction tx = new Transaction(
+                longToBytesNoLeadZeroes(nonce.longValueExact()),
+                GAS_PRICE,
+                GAS_LIMIT,
+                Hex.decode(recipient.substring(2)),
+                bigIntegerToBytes(amount),
+                null
+        );
+
+        tx.sign(key);
+
+        String rawHex = "0x" + Hex.toHexString(tx.getEncoded());
+        String json = writeObjectAsString(prepareRpcCall("eth_sendRawTransaction", rawHex));
+
+        RestClient.Response response = RestClient.post(NODE_URL, json);
+        JsonNode body = response.getBody();
+
+        if (!body.path("error").isMissingNode()) {
+            throw new RestClientException(body.path("error").path("message").asText());
+        }
+
+        String txHash = body.path("result").asText();
+        System.out.println("Tx hash: " + txHash);
+
+        return txHash;
+    }
+
+    public static String transferEth(String recipient, long amount, byte[] privateKey)
+            throws RestClientException {
+        return transferEth(recipient, new BigInteger(Long.toString(amount)), privateKey);
+    }
+
+    public static BigInteger getBaseUnit(String symbol) {
+        byte[] encodedData = ETOKEN_BASE_UNIT.encode(symbol.toUpperCase());
+        String data = "0x" + Hex.toHexString(encodedData);
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("to", ETOKEN_CONTRACT_ADDRESS);
+        params.put("data", data);
+
+        String json = writeObjectAsString(prepareRpcCall("eth_call", params));
+        System.out.println(json);
+
+        RestClient.Response response = RestClient.post(NODE_URL, json);
+        JsonNode body = response.getBody();
+
+        if (!body.path("error").isMissingNode()) {
+            throw new RestClientException(body.path("error").path("message").asText());
+        }
+
+        return new BigInteger(body.path("result").asText().substring(2), 16);
     }
 
     private static Map<String, Object> prepareRpcCall(String method, Object... params) {
