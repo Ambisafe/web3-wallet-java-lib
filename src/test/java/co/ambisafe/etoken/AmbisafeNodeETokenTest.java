@@ -75,6 +75,7 @@ public class AmbisafeNodeETokenTest {
     public void activation() {
         Account account = Account.generate("test");
 
-        AmbisafeNode.ETokenETH.activateAccount(account.getPrivateKey("test"));
+        AmbisafeNode.ETokenETH.isActivated(account.getAddress());
+//        AmbisafeNode.ETokenETH.activateAccount(account.getPrivateKey("test"));
     }
 }

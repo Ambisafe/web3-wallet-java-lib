@@ -11480,3 +11480,53 @@
 18:26:49.869 DEBUG [MainClientExec]  Connection can be kept alive indefinitely
 18:26:49.869 DEBUG [PoolingHttpClientConnectionManager]  Connection [id: 0][route: {}->http://node.ambisafe.co:80] can be kept alive indefinitely
 18:26:49.869 DEBUG [PoolingHttpClientConnectionManager]  Connection released: [id: 0][route: {}->http://node.ambisafe.co:80][total kept alive: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+18:52:56.139 DEBUG [RequestAddCookies]  CookieSpec selected: default
+18:52:56.158 DEBUG [RequestAuthCache]  Auth cache not set in the context
+18:52:56.160 DEBUG [PoolingHttpClientConnectionManager]  Connection request: [route: {}->http://node.ambisafe.co:80][total kept alive: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+18:52:56.179 DEBUG [PoolingHttpClientConnectionManager]  Connection leased: [id: 0][route: {}->http://node.ambisafe.co:80][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+18:52:56.180 DEBUG [MainClientExec]  Opening connection {}->http://node.ambisafe.co:80
+18:52:56.188 DEBUG [DefaultHttpClientConnectionOperator]  Connecting to node.ambisafe.co/104.197.76.247:80
+18:52:56.333 DEBUG [DefaultHttpClientConnectionOperator]  Connection established 192.168.0.105:56766<->104.197.76.247:80
+18:52:56.333 DEBUG [MainClientExec]  Executing request POST / HTTP/1.1
+18:52:56.333 DEBUG [MainClientExec]  Target auth state: UNCHALLENGED
+18:52:56.333 DEBUG [MainClientExec]  Proxy auth state: UNCHALLENGED
+18:52:56.337 DEBUG [headers]  http-outgoing-0 >> POST / HTTP/1.1
+18:52:56.337 DEBUG [headers]  http-outgoing-0 >> Content-Length: 201
+18:52:56.338 DEBUG [headers]  http-outgoing-0 >> Content-Type: application/json
+18:52:56.338 DEBUG [headers]  http-outgoing-0 >> Host: node.ambisafe.co
+18:52:56.338 DEBUG [headers]  http-outgoing-0 >> Connection: Keep-Alive
+18:52:56.338 DEBUG [headers]  http-outgoing-0 >> User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)
+18:52:56.338 DEBUG [headers]  http-outgoing-0 >> Accept-Encoding: gzip,deflate
+18:52:56.339 DEBUG [wire]  http-outgoing-0 >> "POST / HTTP/1.1[\r][\n]"
+18:52:56.339 DEBUG [wire]  http-outgoing-0 >> "Content-Length: 201[\r][\n]"
+18:52:56.339 DEBUG [wire]  http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+18:52:56.339 DEBUG [wire]  http-outgoing-0 >> "Host: node.ambisafe.co[\r][\n]"
+18:52:56.339 DEBUG [wire]  http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+18:52:56.339 DEBUG [wire]  http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)[\r][\n]"
+18:52:56.340 DEBUG [wire]  http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+18:52:56.350 DEBUG [wire]  http-outgoing-0 >> "[\r][\n]"
+18:52:56.350 DEBUG [wire]  http-outgoing-0 >> "{"method":"eth_call","id":1,"jsonrpc":"2.0","params":[{"data":"0xbe9b42d20000000000000000000000003f56e89671e3f638166c3c6d64c293456f1e0505","to":"0x7660727d3cb947e807acead927ef3ede24c4a18d"},"pending"]}"
+18:52:56.495 DEBUG [wire]  http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+18:52:56.496 DEBUG [wire]  http-outgoing-0 << "Content-Type: application/json[\r][\n]"
+18:52:56.496 DEBUG [wire]  http-outgoing-0 << "Allow: OPTIONS, POST[\r][\n]"
+18:52:56.496 DEBUG [wire]  http-outgoing-0 << "Date: Fri, 11 Nov 2016 16:52:56 GMT[\r][\n]"
+18:52:56.496 DEBUG [wire]  http-outgoing-0 << "Transfer-Encoding: chunked[\r][\n]"
+18:52:56.496 DEBUG [wire]  http-outgoing-0 << "Access-Control-Allow-Credentials: true[\r][\n]"
+18:52:56.496 DEBUG [wire]  http-outgoing-0 << "Access-Control-Allow-Origin: [\r][\n]"
+18:52:56.496 DEBUG [wire]  http-outgoing-0 << "Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With[\r][\n]"
+18:52:56.497 DEBUG [wire]  http-outgoing-0 << "[\r][\n]"
+18:52:56.497 DEBUG [wire]  http-outgoing-0 << "66[\r][\n]"
+18:52:56.497 DEBUG [wire]  http-outgoing-0 << "{"jsonrpc":"2.0","result":"0x0000000000000000000000000000000000000000000000000000000000000000","id":1}[\r][\n]"
+18:52:56.497 DEBUG [wire]  http-outgoing-0 << "0[\r][\n]"
+18:52:56.497 DEBUG [wire]  http-outgoing-0 << "[\r][\n]"
+18:52:56.500 DEBUG [headers]  http-outgoing-0 << HTTP/1.1 200 OK
+18:52:56.500 DEBUG [headers]  http-outgoing-0 << Content-Type: application/json
+18:52:56.500 DEBUG [headers]  http-outgoing-0 << Allow: OPTIONS, POST
+18:52:56.500 DEBUG [headers]  http-outgoing-0 << Date: Fri, 11 Nov 2016 16:52:56 GMT
+18:52:56.500 DEBUG [headers]  http-outgoing-0 << Transfer-Encoding: chunked
+18:52:56.500 DEBUG [headers]  http-outgoing-0 << Access-Control-Allow-Credentials: true
+18:52:56.500 DEBUG [headers]  http-outgoing-0 << Access-Control-Allow-Origin: 
+18:52:56.500 DEBUG [headers]  http-outgoing-0 << Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+18:52:56.507 DEBUG [MainClientExec]  Connection can be kept alive indefinitely
+18:52:56.511 DEBUG [PoolingHttpClientConnectionManager]  Connection [id: 0][route: {}->http://node.ambisafe.co:80] can be kept alive indefinitely
+18:52:56.511 DEBUG [PoolingHttpClientConnectionManager]  Connection released: [id: 0][route: {}->http://node.ambisafe.co:80][total kept alive: 1; route allocated: 1 of 2; total allocated: 1 of 20]

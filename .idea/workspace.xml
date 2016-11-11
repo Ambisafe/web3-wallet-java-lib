@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9af9eecc-c1d4-4296-b64e-bca1a0e1a565" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AmbisafeNodeTest.java" afterPath="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AmbisafeNodeETokenTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/ethereum.log" afterPath="$PROJECT_DIR$/logs/ethereum.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java" afterPath="$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AmbisafeNodeETokenTest.java" afterPath="$PROJECT_DIR$/src/test/java/co/ambisafe/etoken/AmbisafeNodeETokenTest.java" />
     </list>
     <ignored path="web3-wallet-java-lib.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +31,8 @@
       <file leaf-file-name="AmbisafeNode.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="290" column="5" selection-start-line="290" selection-start-column="5" selection-end-line="290" selection-end-column="5" />
+            <state relative-caret-position="991">
+              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
               <folding>
                 <element signature="e#1128#1129#0" expanded="true" />
                 <element signature="e#1189#1190#0" expanded="true" />
@@ -1030,7 +1029,7 @@
       <workItem from="1478519274963" duration="12108000" />
       <workItem from="1478609636977" duration="20872000" />
       <workItem from="1478776583841" duration="11512000" />
-      <workItem from="1478858101155" duration="19272000" />
+      <workItem from="1478858101155" duration="21449000" />
     </task>
     <servers />
   </component>
@@ -1053,21 +1052,21 @@
     <history-entry file="AmbisafeNodeETokenTest_activation - 2016.11.11 at 18h 26m 57s.xml">
       <configuration name="AmbisafeNodeETokenTest.activation" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AmbisafeNodeETokenTest_activation - 2016.11.11 at 18h 53m 51s.xml">
+      <configuration name="AmbisafeNodeETokenTest.activation" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="AmbisafeNodeETokenTest_transfer - 2016.11.11 at 18h 15m 14s.xml">
       <configuration name="AmbisafeNodeETokenTest.transfer" configurationId="JUnit" />
     </history-entry>
     <history-entry file="AmbisafeNodeETokenTest_transfer - 2016.11.11 at 18h 16m 16s.xml">
       <configuration name="AmbisafeNodeETokenTest.transfer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ETokenHistoryTest_getTxList_withParams - 2016.11.11 at 16h 58m 44s.xml">
-      <configuration name="ETokenHistoryTest.getTxList_withParams" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ETokenHistoryTest_getTxList_withParams - 2016.11.11 at 16h 59m 55s.xml">
       <configuration name="ETokenHistoryTest.getTxList_withParams" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63764000" />
+    <option name="totallyTimeSpent" value="65941000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="24" width="1313" height="744" extended-state="6" />
@@ -1142,7 +1141,7 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="36" />
+      <option name="time" value="39" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1583,8 +1582,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/co/ambisafe/etoken/service/AmbisafeNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="290" column="5" selection-start-line="290" selection-start-column="5" selection-end-line="290" selection-end-column="5" />
+        <state relative-caret-position="991">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
           <folding>
             <element signature="e#1128#1129#0" expanded="true" />
             <element signature="e#1189#1190#0" expanded="true" />
