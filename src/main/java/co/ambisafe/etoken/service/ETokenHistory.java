@@ -15,7 +15,7 @@ public class ETokenHistory {
 
     private static final String BASE_URL ="https://etoken-history.ambisafe.co/";
 
-    public static TxList getTxList(String recipient, String... params) {
+    public static TxList getTxList(String recipient, String... params) throws ETokenException {
         recipient = check0x(recipient);
 
         String paramsString = prepareParams(params);
@@ -151,10 +151,10 @@ public class ETokenHistory {
 
         @Override
         public String toString() {
-            return "TxList{" +
-                    "total='" + total + '\'' +
-                    ", txList=" + txList +
-                    ", nextRequest=" + nextRequest +
+            return "{" +
+                    "\"total\":\"" + total + '"' +
+                    ", \"txList\":" + txList +
+                    ", \"nextRequest\":\"" + nextRequest + "\"" +
                     '}';
         }
     }

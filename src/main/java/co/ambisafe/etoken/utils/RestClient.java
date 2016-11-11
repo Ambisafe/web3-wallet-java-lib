@@ -20,7 +20,7 @@ public class RestClient {
 
     private static CloseableHttpClient httpClient = HttpClients.createDefault();
 
-    public static Response get(String url) {
+    public static Response get(String url) throws RestClientException {
         try {
             HttpGet httpGet = new HttpGet(url);
 

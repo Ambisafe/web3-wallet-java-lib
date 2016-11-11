@@ -20,5 +20,9 @@ public class ETokenHistoryTest {
 
         ETokenHistory.TxList txList = ETokenHistory.getTxList(recipient, param1, value1, param2, value2);
         System.out.println(txList);
+
+        if (txList.hasNextPage()) {
+            txList.requestNextPage();
+        }
     }
 }

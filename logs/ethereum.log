@@ -10698,3 +10698,111 @@
 16:49:55.548 DEBUG [MainClientExec]  Connection can be kept alive indefinitely
 16:49:55.554 DEBUG [PoolingHttpClientConnectionManager]  Connection [id: 0][route: {s}->https://etoken-history.ambisafe.co:443] can be kept alive indefinitely
 16:49:55.555 DEBUG [PoolingHttpClientConnectionManager]  Connection released: [id: 0][route: {s}->https://etoken-history.ambisafe.co:443][total kept alive: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+16:58:42.735 DEBUG [RequestAddCookies]  CookieSpec selected: default
+16:58:42.749 DEBUG [RequestAuthCache]  Auth cache not set in the context
+16:58:42.750 DEBUG [PoolingHttpClientConnectionManager]  Connection request: [route: {s}->https://etoken-history.ambisafe.co:443][total kept alive: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+16:58:42.771 DEBUG [PoolingHttpClientConnectionManager]  Connection leased: [id: 0][route: {s}->https://etoken-history.ambisafe.co:443][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+16:58:42.781 DEBUG [MainClientExec]  Opening connection {s}->https://etoken-history.ambisafe.co:443
+16:58:43.177 DEBUG [DefaultHttpClientConnectionOperator]  Connecting to etoken-history.ambisafe.co/52.222.171.100:443
+16:58:43.177 DEBUG [SSLConnectionSocketFactory]  Connecting socket to etoken-history.ambisafe.co/52.222.171.100:443 with timeout 0
+16:58:43.656 DEBUG [SSLConnectionSocketFactory]  Enabled protocols: [TLSv1, TLSv1.1, TLSv1.2]
+16:58:43.657 DEBUG [SSLConnectionSocketFactory]  Enabled cipher suites:[TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSV]
+16:58:43.657 DEBUG [SSLConnectionSocketFactory]  Starting handshake
+16:58:43.781 DEBUG [SSLConnectionSocketFactory]  Secure session established
+16:58:43.781 DEBUG [SSLConnectionSocketFactory]   negotiated protocol: TLSv1.2
+16:58:43.782 DEBUG [SSLConnectionSocketFactory]   negotiated cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+16:58:43.782 DEBUG [SSLConnectionSocketFactory]   peer principal: CN=etoken-history.ambisafe.co
+16:58:43.782 DEBUG [SSLConnectionSocketFactory]   peer alternative names: [etoken-history.ambisafe.co]
+16:58:43.782 DEBUG [SSLConnectionSocketFactory]   issuer principal: CN=Let's Encrypt Authority X3, O=Let's Encrypt, C=US
+16:58:43.785 DEBUG [DefaultHttpClientConnectionOperator]  Connection established 192.168.0.105:49578<->52.222.171.100:443
+16:58:43.785 DEBUG [MainClientExec]  Executing request GET /tx/0x60dda47483288e673dc0d522a715ae8eed5d60fd?max=2&skip=2& HTTP/1.1
+16:58:43.785 DEBUG [MainClientExec]  Target auth state: UNCHALLENGED
+16:58:43.785 DEBUG [MainClientExec]  Proxy auth state: UNCHALLENGED
+16:58:43.786 DEBUG [headers]  http-outgoing-0 >> GET /tx/0x60dda47483288e673dc0d522a715ae8eed5d60fd?max=2&skip=2& HTTP/1.1
+16:58:43.786 DEBUG [headers]  http-outgoing-0 >> Host: etoken-history.ambisafe.co
+16:58:43.786 DEBUG [headers]  http-outgoing-0 >> Connection: Keep-Alive
+16:58:43.786 DEBUG [headers]  http-outgoing-0 >> User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)
+16:58:43.793 DEBUG [headers]  http-outgoing-0 >> Accept-Encoding: gzip,deflate
+16:58:43.793 DEBUG [wire]  http-outgoing-0 >> "GET /tx/0x60dda47483288e673dc0d522a715ae8eed5d60fd?max=2&skip=2& HTTP/1.1[\r][\n]"
+16:58:43.793 DEBUG [wire]  http-outgoing-0 >> "Host: etoken-history.ambisafe.co[\r][\n]"
+16:58:43.793 DEBUG [wire]  http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+16:58:43.793 DEBUG [wire]  http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)[\r][\n]"
+16:58:43.793 DEBUG [wire]  http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+16:58:43.793 DEBUG [wire]  http-outgoing-0 >> "[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "Content-Type: application/json[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "Content-Length: 967[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "Connection: keep-alive[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "Date: Fri, 11 Nov 2016 14:58:43 GMT[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "x-amzn-RequestId: 56ef8985-a81f-11e6-9ca0-97befa9cb318[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "X-Cache: Miss from cloudfront[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "Via: 1.1 c3a13bd3f87969f441f5bc09596d64cd.cloudfront.net (CloudFront)[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "X-Amz-Cf-Id: yHMhKw7ca7IXGv75zj7Yrx1RkoZxSHGlERG9-kz-H6X2W6YIII3-xw==[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "[\r][\n]"
+16:58:43.953 DEBUG [wire]  http-outgoing-0 << "{"total":2,"result":[{"transactionHash":"0xa13db547691ff1db0e53cef5dcd3b3bdee4d9e04856db65972bcd174ae7d3d4d","timestamp":1471671193,"blockNumber":2104970,"eventName":"TransferToICAP","confirmations":1,"eventData":{"from":"0x94afcdba23744dfcfdf007f51550c9881de87038","reference":"","value":1,"icap":"XE60KUNKUNASQG47ISFQ","to":"0x60dda47483288e673dc0d522a715ae8eed5d60fd","version":1},"logIndex":4,"transactionIndex":3},{"transactionHash":"0xaf205d77ebd7bbec07bc55e22e85acf8f38140aaf5dc47dc48a3dad39d9d1e85","timestamp":1471296482,"blockNumber":2078712,"eventName":"TransferToICAP","confirmations":1,"eventData":{"from":"0x94afcdba23744dfcfdf007f51550c9881de87038","reference":"","value":1,"icap":"XE60KUNKUNASQG47ISFQ","to":"0x60dda47483288e673dc0d522a715ae8eed5d60fd","version":1},"logIndex":2,"transactionIndex":0}],"nextRequest":"https://fm93pbrndi.execute-api.eu-central-1.amazonaws.com/prod/tx/0x60dda47483288e673dc0d522a715ae8eed5d60fd?start=002078712-2&max=2"}"
+16:58:43.955 DEBUG [headers]  http-outgoing-0 << HTTP/1.1 200 OK
+16:58:43.955 DEBUG [headers]  http-outgoing-0 << Content-Type: application/json
+16:58:43.956 DEBUG [headers]  http-outgoing-0 << Content-Length: 967
+16:58:43.956 DEBUG [headers]  http-outgoing-0 << Connection: keep-alive
+16:58:43.956 DEBUG [headers]  http-outgoing-0 << Date: Fri, 11 Nov 2016 14:58:43 GMT
+16:58:43.956 DEBUG [headers]  http-outgoing-0 << x-amzn-RequestId: 56ef8985-a81f-11e6-9ca0-97befa9cb318
+16:58:43.956 DEBUG [headers]  http-outgoing-0 << X-Cache: Miss from cloudfront
+16:58:43.956 DEBUG [headers]  http-outgoing-0 << Via: 1.1 c3a13bd3f87969f441f5bc09596d64cd.cloudfront.net (CloudFront)
+16:58:43.956 DEBUG [headers]  http-outgoing-0 << X-Amz-Cf-Id: yHMhKw7ca7IXGv75zj7Yrx1RkoZxSHGlERG9-kz-H6X2W6YIII3-xw==
+16:58:43.961 DEBUG [MainClientExec]  Connection can be kept alive indefinitely
+16:58:43.969 DEBUG [PoolingHttpClientConnectionManager]  Connection [id: 0][route: {s}->https://etoken-history.ambisafe.co:443] can be kept alive indefinitely
+16:58:43.969 DEBUG [PoolingHttpClientConnectionManager]  Connection released: [id: 0][route: {s}->https://etoken-history.ambisafe.co:443][total kept alive: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+16:59:53.732 DEBUG [RequestAddCookies]  CookieSpec selected: default
+16:59:53.742 DEBUG [RequestAuthCache]  Auth cache not set in the context
+16:59:53.743 DEBUG [PoolingHttpClientConnectionManager]  Connection request: [route: {s}->https://etoken-history.ambisafe.co:443][total kept alive: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+16:59:53.763 DEBUG [PoolingHttpClientConnectionManager]  Connection leased: [id: 0][route: {s}->https://etoken-history.ambisafe.co:443][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+16:59:53.766 DEBUG [MainClientExec]  Opening connection {s}->https://etoken-history.ambisafe.co:443
+16:59:54.117 DEBUG [DefaultHttpClientConnectionOperator]  Connecting to etoken-history.ambisafe.co/52.222.171.248:443
+16:59:54.117 DEBUG [SSLConnectionSocketFactory]  Connecting socket to etoken-history.ambisafe.co/52.222.171.248:443 with timeout 0
+16:59:54.643 DEBUG [SSLConnectionSocketFactory]  Enabled protocols: [TLSv1, TLSv1.1, TLSv1.2]
+16:59:54.644 DEBUG [SSLConnectionSocketFactory]  Enabled cipher suites:[TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSV]
+16:59:54.644 DEBUG [SSLConnectionSocketFactory]  Starting handshake
+16:59:54.808 DEBUG [SSLConnectionSocketFactory]  Secure session established
+16:59:54.808 DEBUG [SSLConnectionSocketFactory]   negotiated protocol: TLSv1.2
+16:59:54.808 DEBUG [SSLConnectionSocketFactory]   negotiated cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+16:59:54.809 DEBUG [SSLConnectionSocketFactory]   peer principal: CN=etoken-history.ambisafe.co
+16:59:54.809 DEBUG [SSLConnectionSocketFactory]   peer alternative names: [etoken-history.ambisafe.co]
+16:59:54.809 DEBUG [SSLConnectionSocketFactory]   issuer principal: CN=Let's Encrypt Authority X3, O=Let's Encrypt, C=US
+16:59:54.814 DEBUG [DefaultHttpClientConnectionOperator]  Connection established 192.168.0.105:53990<->52.222.171.248:443
+16:59:54.814 DEBUG [MainClientExec]  Executing request GET /tx/0x60dda47483288e673dc0d522a715ae8eed5d60fd?max=2&skip=2& HTTP/1.1
+16:59:54.814 DEBUG [MainClientExec]  Target auth state: UNCHALLENGED
+16:59:54.816 DEBUG [MainClientExec]  Proxy auth state: UNCHALLENGED
+16:59:54.818 DEBUG [headers]  http-outgoing-0 >> GET /tx/0x60dda47483288e673dc0d522a715ae8eed5d60fd?max=2&skip=2& HTTP/1.1
+16:59:54.818 DEBUG [headers]  http-outgoing-0 >> Host: etoken-history.ambisafe.co
+16:59:54.818 DEBUG [headers]  http-outgoing-0 >> Connection: Keep-Alive
+16:59:54.818 DEBUG [headers]  http-outgoing-0 >> User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)
+16:59:54.826 DEBUG [headers]  http-outgoing-0 >> Accept-Encoding: gzip,deflate
+16:59:54.826 DEBUG [wire]  http-outgoing-0 >> "GET /tx/0x60dda47483288e673dc0d522a715ae8eed5d60fd?max=2&skip=2& HTTP/1.1[\r][\n]"
+16:59:54.827 DEBUG [wire]  http-outgoing-0 >> "Host: etoken-history.ambisafe.co[\r][\n]"
+16:59:54.827 DEBUG [wire]  http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+16:59:54.827 DEBUG [wire]  http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.5.2 (Java/1.8.0_111)[\r][\n]"
+16:59:54.827 DEBUG [wire]  http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+16:59:54.827 DEBUG [wire]  http-outgoing-0 >> "[\r][\n]"
+16:59:55.019 DEBUG [wire]  http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+16:59:55.019 DEBUG [wire]  http-outgoing-0 << "Content-Type: application/json[\r][\n]"
+16:59:55.019 DEBUG [wire]  http-outgoing-0 << "Content-Length: 967[\r][\n]"
+16:59:55.019 DEBUG [wire]  http-outgoing-0 << "Connection: keep-alive[\r][\n]"
+16:59:55.019 DEBUG [wire]  http-outgoing-0 << "Date: Fri, 11 Nov 2016 14:59:54 GMT[\r][\n]"
+16:59:55.020 DEBUG [wire]  http-outgoing-0 << "x-amzn-RequestId: 81462878-a81f-11e6-a51f-97799563caa3[\r][\n]"
+16:59:55.020 DEBUG [wire]  http-outgoing-0 << "X-Cache: Miss from cloudfront[\r][\n]"
+16:59:55.020 DEBUG [wire]  http-outgoing-0 << "Via: 1.1 fabe381dacc990f9c402cdc69b69dd26.cloudfront.net (CloudFront)[\r][\n]"
+16:59:55.020 DEBUG [wire]  http-outgoing-0 << "X-Amz-Cf-Id: 79bqcT51SSZXtxsgXHqbX5dCe6JZhgsn_74wCQvnlGNiJMX7Y1ikpw==[\r][\n]"
+16:59:55.020 DEBUG [wire]  http-outgoing-0 << "[\r][\n]"
+16:59:55.020 DEBUG [wire]  http-outgoing-0 << "{"total":2,"result":[{"transactionHash":"0xa13db547691ff1db0e53cef5dcd3b3bdee4d9e04856db65972bcd174ae7d3d4d","timestamp":1471671193,"blockNumber":2104970,"eventName":"TransferToICAP","confirmations":1,"eventData":{"from":"0x94afcdba23744dfcfdf007f51550c9881de87038","reference":"","value":1,"icap":"XE60KUNKUNASQG47ISFQ","to":"0x60dda47483288e673dc0d522a715ae8eed5d60fd","version":1},"logIndex":4,"transactionIndex":3},{"transactionHash":"0xaf205d77ebd7bbec07bc55e22e85acf8f38140aaf5dc47dc48a3dad39d9d1e85","timestamp":1471296482,"blockNumber":2078712,"eventName":"TransferToICAP","confirmations":1,"eventData":{"from":"0x94afcdba23744dfcfdf007f51550c9881de87038","reference":"","value":1,"icap":"XE60KUNKUNASQG47ISFQ","to":"0x60dda47483288e673dc0d522a715ae8eed5d60fd","version":1},"logIndex":2,"transactionIndex":0}],"nextRequest":"https://fm93pbrndi.execute-api.eu-central-1.amazonaws.com/prod/tx/0x60dda47483288e673dc0d522a715ae8eed5d60fd?start=002078712-2&max=2"}"
+16:59:55.022 DEBUG [headers]  http-outgoing-0 << HTTP/1.1 200 OK
+16:59:55.022 DEBUG [headers]  http-outgoing-0 << Content-Type: application/json
+16:59:55.022 DEBUG [headers]  http-outgoing-0 << Content-Length: 967
+16:59:55.022 DEBUG [headers]  http-outgoing-0 << Connection: keep-alive
+16:59:55.022 DEBUG [headers]  http-outgoing-0 << Date: Fri, 11 Nov 2016 14:59:54 GMT
+16:59:55.022 DEBUG [headers]  http-outgoing-0 << x-amzn-RequestId: 81462878-a81f-11e6-a51f-97799563caa3
+16:59:55.022 DEBUG [headers]  http-outgoing-0 << X-Cache: Miss from cloudfront
+16:59:55.022 DEBUG [headers]  http-outgoing-0 << Via: 1.1 fabe381dacc990f9c402cdc69b69dd26.cloudfront.net (CloudFront)
+16:59:55.022 DEBUG [headers]  http-outgoing-0 << X-Amz-Cf-Id: 79bqcT51SSZXtxsgXHqbX5dCe6JZhgsn_74wCQvnlGNiJMX7Y1ikpw==
+16:59:55.027 DEBUG [MainClientExec]  Connection can be kept alive indefinitely
+16:59:55.031 DEBUG [PoolingHttpClientConnectionManager]  Connection [id: 0][route: {s}->https://etoken-history.ambisafe.co:443] can be kept alive indefinitely
+16:59:55.031 DEBUG [PoolingHttpClientConnectionManager]  Connection released: [id: 0][route: {s}->https://etoken-history.ambisafe.co:443][total kept alive: 1; route allocated: 1 of 2; total allocated: 1 of 20]
