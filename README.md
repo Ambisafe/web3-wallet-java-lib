@@ -122,7 +122,7 @@ To get your balance specify **address** and asset **symbol**:
 ```java
 String address = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
 String symbol = "CC";
-BigInteger balance = AmbisafeNode.getBalance(address, symbol);
+BigInteger balance = AmbisafeNode.EToken.getBalance(address, symbol);
 // 705000
 ```
  To get transactions count for **address**:
@@ -139,12 +139,26 @@ String amount = "0.005";
 String symbol = "SP";
 byte[] privateKey = account.getPrivateKey(password);
 
-String txHash = AmbisafeNode.transfer(recipient, amount, symbol, privateKey);
+String txHash = AmbisafeNode.EToken.transfer(recipient, amount, symbol, privateKey);
 // 0x157e70f18e7a6d4f61dd5704a4180adc6f0395ab2a3b31e0e9b34573d1b366d2
 ```
 >**NOTICE**: throws RestClientException/
 
 This action returns hash of the transaction.
+
+### ETokenETH
+This things also are available for ETokenETH the same way, just change class to **ETokenETH**.
+```java
+String address = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+BigInteger balance = AmbisafeNode.ETokenETH.getBalance(address);
+// 100500
+```
+
+Account activation:
+```java
+byte[] privateKey = account.getPrivateKey(password);
+AmbisafeNode.ETokenETH.activateAccount(privateKey);
+```
 
 ### EToken History (http://etoken-history-docs.rtfd.io/)
 To get transactions list by **recipient**:
