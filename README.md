@@ -116,6 +116,14 @@ Keystore.saveAccount(jwtToken, account);
 Account accFromKeystore = Keystore.getAccount(account.getId());
 String privateKeyHex = accFromKeystore.getPrivateKeyHex(password);
 ```
+## Currencies
+**NOTICE**: all currencies has **baseUnit** - Token Decimals. For example, ETokenETH and Ethereum has 18 decimals.  
+For EToken Assets you can get it by **AmbisafeNode.EToken.getBaseUnit** method. You should consider this value while transferring.
+```java
+String symbol = "CC";
+BigInteger baseUnit = AmbisafeNode.EToken.getBaseUnit(symbol);
+// 6
+```
 
 ### EToken
 To get your balance specify **address** and asset **symbol**:
@@ -123,7 +131,7 @@ To get your balance specify **address** and asset **symbol**:
 String address = account.getAddress();
 String symbol = "CC";
 BigInteger balance = AmbisafeNode.EToken.getBalance(address, symbol);
-// 705000
+// 0.194998
 ```
  To get transactions count for **address**:
 ```java
@@ -143,7 +151,7 @@ byte[] privateKey = account.getPrivateKey(password);
 String txHash = AmbisafeNode.EToken.transfer(recipient, amount, symbol, reference, privateKey);
 // 0x157e70f18e7a6d4f61dd5704a4180adc6f0395ab2a3b31e0e9b34573d1b366d2
 ```
->**NOTICE**: throws RestClientException/
+>**NOTICE**: throws RestClientException
 
 This action returns a hash of the transaction.
 
@@ -152,7 +160,7 @@ This things also are available for ETokenETH the same way, just change class to 
 ```java
 String address = account.getAddress();
 BigInteger balance = AmbisafeNode.ETokenETH.getBalance(address);
-// 100500
+// 0.1005001
 ```
 
 Account activation:
@@ -166,13 +174,13 @@ To get balance:
 ```java
 String address = account.getAddress();
 BigInteger balance = AmbisafeNode.Eth.getBalance(address);
-// 60365207000000000
+// 0.03652075551
 ```
 
 To send transaction:
 ```java
 String recipient = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
-String amount = "1000";
+String amount = "0.001";
 byte[] privateKey = account.getPrivateKey(password);
 
 String txHash = AmbisafeNode.Eth.transfer(recipient, amount, privateKey);
