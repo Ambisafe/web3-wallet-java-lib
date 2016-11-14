@@ -45,12 +45,6 @@ public class CryptoUtils {
         return decryptData(container.getData(), container.getIv(), container.getSalt(), password);
     }
 
-//    public static byte[] sha3(byte[] input) {
-//        Keccak256 digest = new Keccak256();
-//        digest.update(input);
-//        return digest.digest();
-//    }
-
     private static void prepare(AesCbcCrypto aesCbcCrypto, byte[] iv, String salt, String password) {
         aesCbcCrypto.resetCiphers();
         aesCbcCrypto.setKey(PBKDF2SHA512.derive(password, salt, iterations, keyLength));

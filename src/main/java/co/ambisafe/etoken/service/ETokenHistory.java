@@ -13,7 +13,11 @@ import static co.ambisafe.etoken.utils.Utils.check0x;
 
 public class ETokenHistory {
 
-    private static final String BASE_URL ="https://etoken-history.ambisafe.co/";
+    private static String BASE_URL ="https://etoken-history.ambisafe.co/";
+
+    public static void setBaseUrl(String baseUrl) {
+        BASE_URL = baseUrl;
+    }
 
     public static TxList getTxList(String recipient, String... params) throws ETokenException {
         recipient = check0x(recipient);

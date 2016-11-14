@@ -24,8 +24,12 @@ import static co.ambisafe.etoken.utils.Utils.writeObjectAsString;
 
 public class Keystore {
 
-    private static String BASE_URL = "https://t2kx2mb0fg.execute-api.eu-central-1.amazonaws.com/stage/keystore/";
+    private static String BASE_URL = "https://keystore.ambisafe.co/keystore/";
     private static CloseableHttpClient httpClient = HttpClients.createDefault();
+
+    public static void setBaseUrl(String baseUrl) {
+        BASE_URL = baseUrl;
+    }
 
     public static void saveAccount(String jwtToken, Account account) {
         String url = BASE_URL + account.getId();
