@@ -2,4 +2,4 @@
 dependency-reduced-pom.xml
 *.iml
 logs
-target
+#target-
