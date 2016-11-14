@@ -258,6 +258,19 @@ public class AmbisafeNode {
 
     // Ethereum
     public static class Eth {
+        public static BigInteger getBalance(String address) {
+            String json = writeObjectAsString(prepareRpcCall("eth_getBalance", check0x(address), "pending"));
+
+            RestClient.Response response = RestClient.post(NODE_URL, json);
+            JsonNode body = response.getBody();
+
+            if (!body.path("error").isMissingNode()) {
+                throw new RestClientException(body.path("error").path("message").asText());
+            }
+
+            return new BigInteger(body.path("result").asText().substring(2), 16);
+        }
+
         public static String transfer(String recipient, String amount, byte[] privateKey)
                 throws RestClientException {
             recipient = check0x(recipient);
