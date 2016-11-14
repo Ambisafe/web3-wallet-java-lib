@@ -100,10 +100,10 @@ public class AmbisafeNode {
                 throw new RestClientException(body.path("error").path("message").asText());
             }
 
-            BigInteger baseUnit = getBaseUnit(symbol);
+            BigDecimal baseUnit = new BigDecimal("10").pow(getBaseUnit(symbol).intValue());
             BigInteger balance = new BigInteger(body.path("result").asText().substring(2), 16);
 
-            return new BigDecimal(balance).divide(new BigDecimal(baseUnit));
+            return new BigDecimal(balance).divide(baseUnit);
         }
 
         public static String transfer(String recipient, String amount, String symbol, String reference, byte[] privateKey)
@@ -220,9 +220,10 @@ public class AmbisafeNode {
                 throw new RestClientException(body.path("error").path("message").asText());
             }
 
+            BigDecimal bUnit = new BigDecimal("10").pow(baseUnit);
             BigInteger balance = new BigInteger(body.path("result").asText().substring(2), 16);
 
-            return new BigDecimal(balance).divide(new BigDecimal(baseUnit));
+            return new BigDecimal(balance).divide(bUnit);
         }
 
         public static String transfer(String recipient, String amount, String reference, byte[] privateKey)
@@ -279,8 +280,10 @@ public class AmbisafeNode {
                 throw new RestClientException(body.path("error").path("message").asText());
             }
 
+            BigDecimal bUnit = new BigDecimal("10").pow(baseUnit);
             BigInteger balance = new BigInteger(body.path("result").asText().substring(2), 16);
-            return new BigDecimal(balance).divide(new BigDecimal(baseUnit));
+
+            return new BigDecimal(balance).divide(bUnit);
         }
 
         public static String transfer(String recipient, String amount, byte[] privateKey)
