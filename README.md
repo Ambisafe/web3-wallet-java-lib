@@ -2,7 +2,7 @@
 
 ## Usage
 >**NOTICE**: all methods throws only RuntimeExceptions for convenience, 
-so be carefuly and check JavaDoc method signature to handle exceptions
+so be careful and check JavaDoc method signature to handle exceptions
 
 ### Accounts
 #### Create
@@ -49,11 +49,11 @@ account.changePassword(oldPassword, newPassword);
 ```
 >**NOTICE**: if wrong password was specified, CryptoException will be thrown.
 
-This action reecrypts container with new password, generates new unique **id** and increment **version** by one.
+This action reecrypts container with the new password, generates new unique **id** and increment **version** by one.
 
 ## Ambisafe services
 ### Tenant and JWT tokens
-To deal with Ambisafe services you need to generate JWT token with right subject for request authorization.
+To deal with Ambisafe services you need to generate JWT token with the right subject for request authorization.
 To generate new one you need to specify your tenant **key**, **secret** and target service **subject**:
 ```java
 String key = "dcc4732d-3ac2-81c7-4074-3132fe9f5d26";
@@ -145,7 +145,7 @@ String txHash = AmbisafeNode.EToken.transfer(recipient, amount, symbol, referenc
 ```
 >**NOTICE**: throws RestClientException/
 
-This action returns hash of the transaction.
+This action returns a hash of the transaction.
 
 ### ETokenETH
 This things also are available for ETokenETH the same way, just change class to **ETokenETH**.
