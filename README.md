@@ -77,7 +77,7 @@ Decoded jwt token looks like this:
 This method generates new jwt token and sign it by your tenant secret key to authorize request on service side.
 
 ### Keystore (http://keystore-docs.rtfd.io/)
-This will presist account in Ambisafe Keystore service:
+This will persist account in Ambisafe Keystore service:
 ```java
 // generate account
 String password = "Ambisafe_Pass";
