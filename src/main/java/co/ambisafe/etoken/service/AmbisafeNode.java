@@ -258,6 +258,8 @@ public class AmbisafeNode {
 
     // Ethereum
     public static class Eth {
+        private static final int baseUnit = 18;
+
         public static BigInteger getBalance(String address) {
             String json = writeObjectAsString(prepareRpcCall("eth_getBalance", check0x(address), "pending"));
 
@@ -279,12 +281,15 @@ public class AmbisafeNode {
             String senderAddress = Hex.toHexString(key.getAddress());
             BigInteger nonce = getTransactionsCount(senderAddress);
 
+            BigDecimal baseUnit = new BigDecimal("10").pow(Eth.baseUnit);
+            BigInteger newAmount = new BigDecimal(amount).multiply(baseUnit).toBigIntegerExact();
+
             Transaction tx = new Transaction(
                     longToBytesNoLeadZeroes(nonce.longValueExact()),
                     GAS_PRICE,
                     GAS_LIMIT,
                     Hex.decode(recipient.substring(2)),
-                    bigIntegerToBytes(new BigInteger(amount)),
+                    bigIntegerToBytes(newAmount),
                     null
             );
 
