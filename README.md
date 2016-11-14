@@ -161,7 +161,7 @@ byte[] privateKey = account.getPrivateKey(password);
 AmbisafeNode.ETokenETH.activateAccount(privateKey);
 ```
 
-### Etehreum
+### Ethereum
 To get balance:
 ```java
 String address = account.getAddress();
