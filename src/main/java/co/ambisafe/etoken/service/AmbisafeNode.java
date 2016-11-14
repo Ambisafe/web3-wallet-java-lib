@@ -103,7 +103,7 @@ public class AmbisafeNode {
             BigInteger baseUnit = getBaseUnit(symbol);
             BigInteger balance = new BigInteger(body.path("result").asText().substring(2), 16);
 
-            return new BigDecimal(balance, baseUnit.intValue());
+            return new BigDecimal(balance).divide(new BigDecimal(baseUnit));
         }
 
         public static String transfer(String recipient, String amount, String symbol, String reference, byte[] privateKey)
@@ -222,7 +222,7 @@ public class AmbisafeNode {
 
             BigInteger balance = new BigInteger(body.path("result").asText().substring(2), 16);
 
-            return new BigDecimal(balance, baseUnit);
+            return new BigDecimal(balance).divide(new BigDecimal(baseUnit));
         }
 
         public static String transfer(String recipient, String amount, String reference, byte[] privateKey)
@@ -269,7 +269,7 @@ public class AmbisafeNode {
     public static class Eth {
         private static final int baseUnit = 18;
 
-        public static BigInteger getBalance(String address) {
+        public static BigDecimal getBalance(String address) {
             String json = writeObjectAsString(prepareRpcCall("eth_getBalance", assure0x(address), "pending"));
 
             RestClient.Response response = RestClient.post(NODE_URL, json);
@@ -279,7 +279,8 @@ public class AmbisafeNode {
                 throw new RestClientException(body.path("error").path("message").asText());
             }
 
-            return new BigInteger(body.path("result").asText().substring(2), 16);
+            BigInteger balance = new BigInteger(body.path("result").asText().substring(2), 16);
+            return new BigDecimal(balance).divide(new BigDecimal(baseUnit));
         }
 
         public static String transfer(String recipient, String amount, byte[] privateKey)
