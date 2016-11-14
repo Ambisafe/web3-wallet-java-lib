@@ -1,11 +1,11 @@
 package co.ambisafe.etoken;
 
 import co.ambisafe.etoken.exception.CryptoException;
-import co.ambisafe.etoken.imports.ECKey;
 import co.ambisafe.etoken.service.Keystore;
 import co.ambisafe.etoken.service.Tenant;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
+import org.ethereum.crypto.ECKey;
 import org.junit.Test;
 import org.spongycastle.util.encoders.Hex;
 

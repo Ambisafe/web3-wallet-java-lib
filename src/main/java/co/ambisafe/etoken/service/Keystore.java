@@ -34,7 +34,6 @@ public class Keystore {
 
         try {
             String json = getAccountJson(account);
-            System.out.println("Json: " + json);
 
             StringEntity entity = new StringEntity(json);
             entity.setContentType("application/json");
@@ -42,11 +41,9 @@ public class Keystore {
 
             CloseableHttpResponse response = httpClient.execute(httpPost);
 
-            System.out.println(response.getStatusLine());
             HttpEntity responseEntity = response.getEntity();
 
             String body = EntityUtils.toString(responseEntity);
-            System.out.println("Body: " + body);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -59,13 +56,10 @@ public class Keystore {
         try {
             CloseableHttpResponse response = httpClient.execute(httpGet);
 
-            System.out.println(response.getStatusLine());
             HttpEntity entity = response.getEntity();
             String body = EntityUtils.toString(entity);
-            System.out.println("GET Response: " + body);
 
             JsonNode json = new ObjectMapper().readTree(body);
-            System.out.println("Json: " + json);
 
             JsonNode crypto = json.path("crypto");
             Container container = new Container(

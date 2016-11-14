@@ -334,7 +334,6 @@ public class AmbisafeNode {
         }
 
         String txHash = body.path("result").asText();
-        System.out.println("Tx hash: " + txHash);
 
         return txHash;
     }
