@@ -117,7 +117,7 @@ Account accFromKeystore = Keystore.getAccount(account.getId());
 String privateKeyHex = accFromKeystore.getPrivateKeyHex(password);
 ```
 ## Currencies
-**NOTICE**: all currencies has **baseUnit** - Token Decimals. For example, ETokenETH and Ethereum has 18 decimals.  
+**NOTICE**: all currencies have **baseUnit** - Token Decimals. For example, ETokenETH and Ethereum have 18 decimals.  
 For EToken Assets you can get it by **AmbisafeNode.EToken.getBaseUnit** method. You should consider this value while transferring.
 ```java
 String symbol = "CC";
