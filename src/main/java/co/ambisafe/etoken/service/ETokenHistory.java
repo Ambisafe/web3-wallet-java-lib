@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import java.util.ArrayList;
 import java.util.List;
 
-import static co.ambisafe.etoken.utils.Utils.check0x;
+import static co.ambisafe.etoken.utils.Utils.assure0x;
 
 public class ETokenHistory {
 
@@ -20,7 +20,7 @@ public class ETokenHistory {
     }
 
     public static TxList getTxList(String recipient, String... params) throws ETokenException {
-        recipient = check0x(recipient);
+        recipient = assure0x(recipient);
 
         String paramsString = prepareParams(params);
         String url = BASE_URL + "/tx/" + recipient + paramsString;

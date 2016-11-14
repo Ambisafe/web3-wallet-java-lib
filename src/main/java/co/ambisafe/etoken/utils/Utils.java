@@ -27,7 +27,7 @@ public class Utils {
         }
     }
 
-    public static String check0x(String param) {
+    public static String assure0x(String param) {
         if (!param.startsWith("0x")) param = "0x" + param;
         return param;
     }

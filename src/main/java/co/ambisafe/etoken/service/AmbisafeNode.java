@@ -15,18 +15,22 @@ import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
-import static co.ambisafe.etoken.utils.Utils.check0x;
+import static co.ambisafe.etoken.utils.Utils.assure0x;
 import static co.ambisafe.etoken.utils.Utils.writeObjectAsString;
 import static org.ethereum.util.ByteUtil.bigIntegerToBytes;
 import static org.ethereum.util.ByteUtil.longToBytesNoLeadZeroes;
 
 public class AmbisafeNode {
 
-    private static final String NODE_URL = "http://node.ambisafe.co/";
+    private static String NODE_URL = "https://node.ambisafe.co/";
     private static byte[] GAS_PRICE = longToBytesNoLeadZeroes(21000000000L);
     private static byte[] GAS_LIMIT = longToBytesNoLeadZeroes(250000L);
 
     // setup
+    public static void setNodeUrl(String nodeUrl) {
+        NODE_URL = nodeUrl;
+    }
+
     public static void setGasPrice(long gasPrice) {
         GAS_PRICE = longToBytesNoLeadZeroes(gasPrice);
     }
@@ -55,7 +59,7 @@ public class AmbisafeNode {
             String senderAddress = Hex.toHexString(key.getAddress());
             BigInteger nonce = getTransactionsCount(senderAddress);
 
-            byte[] encodedData = trust.encode(check0x(recoveryContractAddress));
+            byte[] encodedData = trust.encode(assure0x(recoveryContractAddress));
 
             simulateTransaction(senderAddress, encodedData, contractAddress);
 
@@ -74,7 +78,7 @@ public class AmbisafeNode {
         }
 
         public static boolean isRecoveryEnabled(String address, String recoveryContractAddress) {
-            String json = prepareContractCall(isTrusted, contractAddress, check0x(address), check0x(recoveryContractAddress));
+            String json = prepareContractCall(isTrusted, contractAddress, assure0x(address), assure0x(recoveryContractAddress));
 
             RestClient.Response response = RestClient.post(NODE_URL, json);
             JsonNode body = response.getBody();
@@ -86,8 +90,8 @@ public class AmbisafeNode {
             return body.path("result").asText().endsWith("1");
         }
 
-        public static BigInteger getBalance(String address, String symbol) {
-            String json = prepareContractCall(balanceOf, contractAddress, check0x(address), symbol.toUpperCase());
+        public static BigDecimal getBalance(String address, String symbol) {
+            String json = prepareContractCall(balanceOf, contractAddress, assure0x(address), symbol.toUpperCase());
 
             RestClient.Response response = RestClient.post(NODE_URL, json);
             JsonNode body = response.getBody();
@@ -96,7 +100,10 @@ public class AmbisafeNode {
                 throw new RestClientException(body.path("error").path("message").asText());
             }
 
-            return new BigInteger(body.path("result").asText().substring(2), 16);
+            BigInteger baseUnit = getBaseUnit(symbol);
+            BigInteger balance = new BigInteger(body.path("result").asText().substring(2), 16);
+
+            return new BigDecimal(balance, baseUnit.intValue());
         }
 
         public static String transfer(String recipient, String amount, String symbol, String reference, byte[] privateKey)
@@ -110,11 +117,11 @@ public class AmbisafeNode {
 
             if (reference == null) reference = "";
 
-            byte[] encodedData = transferWithReference.encode(check0x(recipient), newAmount, symbol.toUpperCase(), reference);
+            byte[] encodedData = transferWithReference.encode(assure0x(recipient), newAmount, symbol.toUpperCase(), reference);
 
             // check balance
-            BigInteger currentBalance = getBalance(senderAddress, symbol);
-            if (currentBalance.compareTo(newAmount) == -1) {
+            BigDecimal currentBalance = getBalance(senderAddress, symbol);
+            if (currentBalance.compareTo(new BigDecimal(amount)) == -1) {
                 throw new InsufficientFundsException("Insufficient balance: " + currentBalance);
             }
 
@@ -191,7 +198,7 @@ public class AmbisafeNode {
         }
 
         public static boolean isActivated(String address) {
-            String json = prepareContractCall(isAutoDeposit, contractAddress, check0x(address));
+            String json = prepareContractCall(isAutoDeposit, contractAddress, assure0x(address));
 
             RestClient.Response response = RestClient.post(NODE_URL, json);
             JsonNode body = response.getBody();
@@ -203,8 +210,8 @@ public class AmbisafeNode {
             return body.path("result").asText().endsWith("1");
         }
 
-        public static BigInteger getBalance(String address) {
-            String json = prepareContractCall(balanceOf, contractAddress, check0x(address));
+        public static BigDecimal getBalance(String address) {
+            String json = prepareContractCall(balanceOf, contractAddress, assure0x(address));
 
             RestClient.Response response = RestClient.post(NODE_URL, json);
             JsonNode body = response.getBody();
@@ -213,7 +220,9 @@ public class AmbisafeNode {
                 throw new RestClientException(body.path("error").path("message").asText());
             }
 
-            return new BigInteger(body.path("result").asText().substring(2), 16);
+            BigInteger balance = new BigInteger(body.path("result").asText().substring(2), 16);
+
+            return new BigDecimal(balance, baseUnit);
         }
 
         public static String transfer(String recipient, String amount, String reference, byte[] privateKey)
@@ -227,11 +236,11 @@ public class AmbisafeNode {
 
             if (reference == null) reference = "";
 
-            byte[] encodedData = transferWithReference.encode(check0x(recipient), newAmount, reference);
+            byte[] encodedData = transferWithReference.encode(assure0x(recipient), newAmount, reference);
 
             // check balance
-            BigInteger currentBalance = getBalance(senderAddress);
-            if (currentBalance.compareTo(newAmount) == -1) {
+            BigDecimal currentBalance = getBalance(senderAddress);
+            if (currentBalance.compareTo(new BigDecimal(amount)) == -1) {
                 throw new InsufficientFundsException("Insufficient balance: " + currentBalance);
             }
 
@@ -261,7 +270,7 @@ public class AmbisafeNode {
         private static final int baseUnit = 18;
 
         public static BigInteger getBalance(String address) {
-            String json = writeObjectAsString(prepareRpcCall("eth_getBalance", check0x(address), "pending"));
+            String json = writeObjectAsString(prepareRpcCall("eth_getBalance", assure0x(address), "pending"));
 
             RestClient.Response response = RestClient.post(NODE_URL, json);
             JsonNode body = response.getBody();
@@ -275,7 +284,7 @@ public class AmbisafeNode {
 
         public static String transfer(String recipient, String amount, byte[] privateKey)
                 throws RestClientException {
-            recipient = check0x(recipient);
+            recipient = assure0x(recipient);
 
             ECKey key = ECKey.fromPrivate(privateKey);
             String senderAddress = Hex.toHexString(key.getAddress());
@@ -306,7 +315,7 @@ public class AmbisafeNode {
 
     // Common
     public static BigInteger getTransactionsCount(String address) {
-        String json = writeObjectAsString(prepareRpcCall("eth_getTransactionCount", check0x(address), "pending"));
+        String json = writeObjectAsString(prepareRpcCall("eth_getTransactionCount", assure0x(address), "pending"));
 
         RestClient.Response response = RestClient.post(NODE_URL, json);
         JsonNode body = response.getBody();
@@ -320,17 +329,21 @@ public class AmbisafeNode {
 
     private static void simulateTransaction(String senderAddress, byte[] encodedData, String contractAddress) {
         Map<String, Object> params = new HashMap<>();
-        params.put("from", check0x(senderAddress));
+        params.put("from", assure0x(senderAddress));
         params.put("to", contractAddress);
-        params.put("gas", check0x(new BigInteger(GAS_LIMIT).toString(16)));
-        params.put("gasPrice", check0x(new BigInteger(GAS_PRICE).toString(16)));
-        params.put("value", check0x(new BigInteger("0").toString(16)));
-        params.put("data", "0x" + Hex.toHexString(encodedData));
+        params.put("gas", assure0x(new BigInteger(GAS_LIMIT).toString(16)));
+        params.put("gasPrice", assure0x(new BigInteger(GAS_PRICE).toString(16)));
+        params.put("value", assure0x(new BigInteger("0").toString(16)));
+        params.put("data", assure0x(Hex.toHexString(encodedData)));
 
         String simulateJson = writeObjectAsString(prepareRpcCall("eth_call", params));
 
         RestClient.Response simulateResponse = RestClient.post(NODE_URL, simulateJson);
         JsonNode simulateBody = simulateResponse.getBody();
+
+        if (!simulateBody.path("error").isMissingNode()) {
+            throw new RestClientException(simulateBody.path("error").path("message").asText());
+        }
 
         String result = simulateBody.path("result").asText();
         if (result.endsWith("0")) {
@@ -340,7 +353,7 @@ public class AmbisafeNode {
     }
 
     private static String sendTransaction(Transaction tx) {
-        String rawHex = "0x" + Hex.toHexString(tx.getEncoded());
+        String rawHex = assure0x(Hex.toHexString(tx.getEncoded()));
         String json = writeObjectAsString(prepareRpcCall("eth_sendRawTransaction", rawHex));
 
         // make request
@@ -358,10 +371,10 @@ public class AmbisafeNode {
 
     private static String prepareContractCall(CallTransaction.Function function, String contractAddress, Object... args) {
         byte[] encodedData = function.encode(args);
-        String data = "0x" + Hex.toHexString(encodedData);
+        String data = assure0x(Hex.toHexString(encodedData));
 
         Map<String, Object> params = new HashMap<>();
-        params.put("to", check0x(contractAddress));
+        params.put("to", assure0x(contractAddress));
         params.put("data", data);
 
         return writeObjectAsString(prepareRpcCall("eth_call", params, "pending"));
