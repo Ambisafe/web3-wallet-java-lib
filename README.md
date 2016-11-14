@@ -86,7 +86,7 @@ Account account = Account.generate(password);
 // generate jwt token
 String key = "dcc4732d-3ac2-81c7-4074-3132fe9f5d26";
 String secret = "K8gTgvZ+eqIiAbE1l8x/7GXAwE/f792utdAjg8vSUmE=";
-String subject = "some_subject";
+String subject = "storage";
 
 Tenant tenant = new Tenant(key, secret);
 String jwtToken = tenant.getJwtToken(subject);
@@ -104,7 +104,7 @@ Account account = Account.generate(password);
 // generate jwt token
 String key = "dcc4732d-3ac2-81c7-4074-3132fe9f5d26";
 String secret = "K8gTgvZ+eqIiAbE1l8x/7GXAwE/f792utdAjg8vSUmE=";
-String subject = "some_subject";
+String subject = "storage";
 
 Tenant tenant = new Tenant(key, secret);
 String jwtToken = tenant.getJwtToken(subject);
@@ -120,26 +120,27 @@ String privateKeyHex = accFromKeystore.getPrivateKeyHex(password);
 ### EToken
 To get your balance specify **address** and asset **symbol**:
 ```java
-String address = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+String address = account.getAddress();
 String symbol = "CC";
 BigInteger balance = AmbisafeNode.EToken.getBalance(address, symbol);
 // 705000
 ```
  To get transactions count for **address**:
 ```java
-String address = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+String address = account.getAddress();
 BigInteger txCount = AmbisafeNode.getTransactionsCount(address);
 // 5
 ```
 
-To sent transaction specify **recipient**, **amount** to send, asset **symbol** and private key from account to sign transaction:
+To sent transaction specify **recipient**, **amount** to send, asset **symbol**, **reference** (optional) and **private key** from account to sign transaction:
 ```java
 String recipient = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
 String amount = "0.005";
 String symbol = "SP";
+String reference = "inv-12345";
 byte[] privateKey = account.getPrivateKey(password);
 
-String txHash = AmbisafeNode.EToken.transfer(recipient, amount, symbol, privateKey);
+String txHash = AmbisafeNode.EToken.transfer(recipient, amount, symbol, reference, privateKey);
 // 0x157e70f18e7a6d4f61dd5704a4180adc6f0395ab2a3b31e0e9b34573d1b366d2
 ```
 >**NOTICE**: throws RestClientException/
@@ -149,7 +150,7 @@ This action returns hash of the transaction.
 ### ETokenETH
 This things also are available for ETokenETH the same way, just change class to **ETokenETH**.
 ```java
-String address = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+String address = account.getAddress();
 BigInteger balance = AmbisafeNode.ETokenETH.getBalance(address);
 // 100500
 ```
@@ -158,6 +159,24 @@ Account activation:
 ```java
 byte[] privateKey = account.getPrivateKey(password);
 AmbisafeNode.ETokenETH.activateAccount(privateKey);
+```
+
+### Etehreum
+To get balance:
+```java
+String address = account.getAddress();
+BigInteger balance = AmbisafeNode.Eth.getBalance(address);
+// 60365207000000000
+```
+
+To send transaction:
+```java
+String recipient = "0x182c44e3afd39811947d344082ec5fd9e6c0a6b7";
+String amount = "1000";
+byte[] privateKey = account.getPrivateKey(password);
+
+String txHash = AmbisafeNode.Eth.transfer(recipient, amount, privateKey);
+// 0x157e70f18e7a6d4f61dd5704a4180adc6f0395ab2a3b31e0e9b34573d1b366d2
 ```
 
 ### EToken History (http://etoken-history-docs.rtfd.io/)
