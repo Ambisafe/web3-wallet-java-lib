@@ -1,6 +1,6 @@
 package co.ambisafe.etoken.imports;
 
-import co.ambisafe.etoken.exception.CryptoException;
+import co.ambisafe.etoken.exceptions.CryptoException;
 import org.spongycastle.crypto.engines.AESFastEngine;
 import org.spongycastle.crypto.modes.CBCBlockCipher;
 import org.spongycastle.crypto.paddings.PaddedBufferedBlockCipher;

@@ -1,4 +1,4 @@
-package co.ambisafe.etoken.exception;
+package co.ambisafe.etoken.exceptions;
 
 public class RestClientException extends ETokenException {
 

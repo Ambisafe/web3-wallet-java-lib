@@ -1,6 +1,6 @@
 package co.ambisafe.etoken.utils;
 
-import co.ambisafe.etoken.exception.RestClientException;
+import co.ambisafe.etoken.exceptions.RestClientException;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.apache.http.HttpEntity;
 import org.apache.http.StatusLine;

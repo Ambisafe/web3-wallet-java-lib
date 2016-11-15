@@ -1,6 +1,6 @@
 package co.ambisafe.etoken.utils;
 
-import co.ambisafe.etoken.exception.ETokenException;
+import co.ambisafe.etoken.exceptions.ETokenException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

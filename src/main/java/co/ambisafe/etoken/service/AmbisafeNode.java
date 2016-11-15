@@ -1,8 +1,8 @@
 package co.ambisafe.etoken.service;
 
-import co.ambisafe.etoken.exception.ETokenException;
-import co.ambisafe.etoken.exception.InsufficientFundsException;
-import co.ambisafe.etoken.exception.RestClientException;
+import co.ambisafe.etoken.exceptions.ETokenException;
+import co.ambisafe.etoken.exceptions.InsufficientFundsException;
+import co.ambisafe.etoken.exceptions.RestClientException;
 import co.ambisafe.etoken.utils.RestClient;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.ethereum.core.CallTransaction;
@@ -309,11 +309,6 @@ public class AmbisafeNode {
             tx.sign(key);
 
             return sendTransaction(tx);
-        }
-
-        public static String transfer(String recipient, long amount, byte[] privateKey)
-                throws RestClientException {
-            return transfer(recipient, Long.toString(amount), privateKey);
         }
     }
 

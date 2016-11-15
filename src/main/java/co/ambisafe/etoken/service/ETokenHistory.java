@@ -1,7 +1,7 @@
 package co.ambisafe.etoken.service;
 
-import co.ambisafe.etoken.exception.ETokenException;
-import co.ambisafe.etoken.exception.RestClientException;
+import co.ambisafe.etoken.exceptions.ETokenException;
+import co.ambisafe.etoken.exceptions.RestClientException;
 import co.ambisafe.etoken.utils.RestClient;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -13,7 +13,7 @@ import static co.ambisafe.etoken.utils.Utils.assure0x;
 
 public class ETokenHistory {
 
-    private static String BASE_URL ="https://etoken-history.ambisafe.co/";
+    private static String BASE_URL = "https://etoken-history.ambisafe.co/";
 
     public static void setBaseUrl(String baseUrl) {
         BASE_URL = baseUrl;
@@ -92,6 +92,50 @@ public class ETokenHistory {
         private String to;
         private String icap;
         private String symbol;
+
+        public long getBlockNumber() {
+            return blockNumber;
+        }
+
+        public long getConfirmations() {
+            return confirmations;
+        }
+
+        public String getEventName() {
+            return eventName;
+        }
+
+        public String getFrom() {
+            return from;
+        }
+
+        public String getIcap() {
+            return icap;
+        }
+
+        public String getReference() {
+            return reference;
+        }
+
+        public String getSymbol() {
+            return symbol;
+        }
+
+        public long getTimestamp() {
+            return timestamp;
+        }
+
+        public String getTo() {
+            return to;
+        }
+
+        public String getTxHash() {
+            return txHash;
+        }
+
+        public String getValue() {
+            return value;
+        }
 
         @Override
         public String toString() {

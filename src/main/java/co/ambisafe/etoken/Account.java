@@ -1,6 +1,6 @@
 package co.ambisafe.etoken;
 
-import co.ambisafe.etoken.exception.CryptoException;
+import co.ambisafe.etoken.exceptions.CryptoException;
 import co.ambisafe.etoken.utils.CryptoUtils;
 import org.ethereum.crypto.ECKey;
 import org.spongycastle.util.encoders.Hex;

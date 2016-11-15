@@ -1,6 +1,6 @@
 package co.ambisafe.etoken.service;
 
-import co.ambisafe.etoken.exception.ETokenException;
+import co.ambisafe.etoken.exceptions.ETokenException;
 import co.ambisafe.etoken.Account;
 import co.ambisafe.etoken.Container;
 import com.auth0.jwt.internal.org.bouncycastle.util.encoders.Hex;
