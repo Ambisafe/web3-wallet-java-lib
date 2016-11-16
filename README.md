@@ -130,7 +130,7 @@ To get your balance specify **address** and asset **symbol**:
 ```java
 String address = account.getAddress();
 String symbol = "CC";
-BigInteger balance = AmbisafeNode.EToken.getBalance(address, symbol);
+BigDecimal balance = AmbisafeNode.EToken.getBalance(address, symbol);
 // 0.194998
 ```
  To get transactions count for **address**:
@@ -159,7 +159,7 @@ This action returns a hash of the transaction.
 This things also are available for ETokenETH the same way, just change class to **ETokenETH**.
 ```java
 String address = account.getAddress();
-BigInteger balance = AmbisafeNode.ETokenETH.getBalance(address);
+BigDecimal balance = AmbisafeNode.ETokenETH.getBalance(address);
 // 0.1005001
 ```
 
@@ -173,7 +173,7 @@ AmbisafeNode.ETokenETH.activateAccount(privateKey);
 To get balance:
 ```java
 String address = account.getAddress();
-BigInteger balance = AmbisafeNode.Eth.getBalance(address);
+BigDecimal balance = AmbisafeNode.Eth.getBalance(address);
 // 0.03652075551
 ```
 
