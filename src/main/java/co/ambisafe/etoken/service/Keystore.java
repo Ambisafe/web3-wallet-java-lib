@@ -1,8 +1,8 @@
 package co.ambisafe.etoken.service;
 
-import co.ambisafe.etoken.exceptions.ETokenException;
 import co.ambisafe.etoken.Account;
 import co.ambisafe.etoken.Container;
+import co.ambisafe.etoken.exceptions.RestClientException;
 import com.auth0.jwt.internal.org.bouncycastle.util.encoders.Hex;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -31,7 +31,7 @@ public class Keystore {
         BASE_URL = baseUrl;
     }
 
-    public static void saveAccount(String jwtToken, Account account) {
+    public static void saveAccount(String jwtToken, Account account) throws RestClientException {
         String url = BASE_URL + account.getId();
         HttpPost httpPost = new HttpPost(url);
         httpPost.addHeader("Authorization", jwtToken);
@@ -49,11 +49,11 @@ public class Keystore {
 
             String body = EntityUtils.toString(responseEntity);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RestClientException(e);
         }
     }
 
-    public static Account getAccount(String accountId) {
+    public static Account getAccount(String accountId) throws RestClientException {
         String url = BASE_URL + accountId;
 
         HttpGet httpGet = new HttpGet(url);
@@ -81,7 +81,7 @@ public class Keystore {
             return account;
         } catch (IOException e) {
             e.printStackTrace();
-            throw new ETokenException(e);
+            throw new RestClientException(e);
         }
     }
 
