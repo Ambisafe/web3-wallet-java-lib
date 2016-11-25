@@ -1,71 +1,123 @@
 package co.ambisafe.etoken.utils;
 
+import co.ambisafe.etoken.Account;
 import co.ambisafe.etoken.exceptions.RestClientException;
+import co.ambisafe.etoken.service.Keystore;
+import co.ambisafe.etoken.service.Tenant;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.apache.http.HttpEntity;
-import org.apache.http.StatusLine;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 
+import javax.net.ssl.HttpsURLConnection;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import static co.ambisafe.etoken.utils.Utils.readTree;
 
 public class RestClient {
 
-    private static CloseableHttpClient httpClient = HttpClients.createDefault();
+    private static final String USER_AGENT = "Mozilla/5.0";
 
-    public static Response get(String url) throws RestClientException {
+    public static Response get(String url, String... headers) throws RestClientException {
         try {
-            HttpGet httpGet = new HttpGet(url);
+            URL obj = new URL(url);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-            CloseableHttpResponse response = httpClient.execute(httpGet);
-            HttpEntity responseEntity = response.getEntity();
+            con.setRequestMethod("GET");
 
-            String body = EntityUtils.toString(responseEntity);
-            JsonNode bodyJson = readTree(body);
+            // add request header
+            if (headers.length % 2 != 0) {
+                throw new RestClientException("Wrong headers structure");
+            }
+            for (int i = 0; i < headers.length; i +=2 ) {
+                String key = headers[i];
+                String value = headers[i+1];
+                con.setRequestProperty(key, value);
+            }
 
-            return new Response(response.getStatusLine(), bodyJson);
+            // default header
+            con.setRequestProperty("User-Agent", USER_AGENT);
+
+            int responseCode = con.getResponseCode();
+
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuilder response = new StringBuilder();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            JsonNode bodyJson = readTree(response.toString());
+
+            return new Response(responseCode, bodyJson);
         } catch (IOException e) {
             throw new RestClientException(e);
         }
     }
 
-    public static Response post(String url, String json) throws RestClientException {
+    public static Response post(String url, String json, String... headers) throws RestClientException {
         try {
-            StringEntity entity = new StringEntity(json);
-            entity.setContentType("application/json");
+            URL obj = new URL(url);
+            HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
-            HttpPost httpPost = new HttpPost(url);
-            httpPost.setEntity(entity);
+            // add request header
+            if (headers.length % 2 != 0) {
+                throw new RestClientException("Wrong headers structure");
+            }
+            for (int i = 0; i < headers.length; i +=2 ) {
+                String key = headers[i];
+                String value = headers[i+1];
+                con.setRequestProperty(key, value);
+            }
 
-            CloseableHttpResponse response = httpClient.execute(httpPost);
-            HttpEntity responseEntity = response.getEntity();
+            // default headers
+            con.setRequestMethod("POST");
+            con.setRequestProperty("User-Agent", USER_AGENT);
+            con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+            con.setRequestProperty("Content-Type", "application/json");
 
-            String body = EntityUtils.toString(responseEntity);
-            JsonNode bodyJson = readTree(body);
+            // Send post request
+            con.setDoOutput(true);
+            DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+            wr.writeBytes(json);
+            wr.flush();
+            wr.close();
 
-            return new Response(response.getStatusLine(), bodyJson);
+            int responseCode = con.getResponseCode();
+
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            JsonNode bodyJson = readTree(response.toString());
+
+            return new Response(responseCode, bodyJson);
         } catch (IOException e) {
             throw new RestClientException(e);
         }
     }
 
     public static class Response {
-        private StatusLine status;
+        private int status;
         private JsonNode body;
 
-        public Response(StatusLine status, JsonNode body) {
+        public Response(int status, JsonNode body) {
             this.status = status;
             this.body = body;
         }
 
-        public StatusLine getStatus() {
+        public int getStatus() {
             return status;
         }
 

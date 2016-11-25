@@ -28,6 +28,7 @@ public class AmbisafeNode {
 
     // setup
     public static void setNodeUrl(String nodeUrl) {
+        if (!nodeUrl.endsWith("/")) nodeUrl += "/";
         NODE_URL = nodeUrl;
     }
 
