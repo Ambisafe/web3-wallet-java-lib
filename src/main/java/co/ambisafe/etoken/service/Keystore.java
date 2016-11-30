@@ -4,9 +4,9 @@ import co.ambisafe.etoken.Account;
 import co.ambisafe.etoken.Container;
 import co.ambisafe.etoken.exceptions.RestClientException;
 import co.ambisafe.etoken.utils.RestClient;
-import com.auth0.jwt.internal.org.bouncycastle.util.encoders.Hex;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.spongycastle.util.encoders.Hex;
 
 import java.io.IOException;
 import java.util.HashMap;

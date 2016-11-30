@@ -1,8 +1,11 @@
 package co.ambisafe.etoken.service;
 
+import co.ambisafe.etoken.exceptions.CryptoException;
 import co.ambisafe.etoken.utils.CryptoUtils;
-import com.auth0.jwt.JWTSigner;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -25,8 +28,6 @@ public class Tenant {
     }
 
     public String getJwtToken(String subject) {
-        JWTSigner signer = new JWTSigner(secret);
-
         HashMap<String, Object> map = new HashMap<>();
         map.put("iss", id);
         map.put("sub", subject);
@@ -34,6 +35,13 @@ public class Tenant {
         map.put("jti", CryptoUtils.getUuid());
         map.put("aud", "ambisafe");
 
-        return signer.sign(map);
+        try {
+            return Jwts.builder().setClaims(map)
+                    .setHeaderParam("typ", "JWT")
+                    .signWith(SignatureAlgorithm.HS256, secret.getBytes("UTF-8"))
+                    .compact();
+        } catch (UnsupportedEncodingException e) {
+            throw new CryptoException(e);
+        }
     }
 }

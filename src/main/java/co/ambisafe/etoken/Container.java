@@ -1,6 +1,6 @@
 package co.ambisafe.etoken;
 
-import com.auth0.jwt.internal.org.bouncycastle.util.encoders.Hex;
+import org.spongycastle.util.encoders.Hex;
 
 public class Container {
 
