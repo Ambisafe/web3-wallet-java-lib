@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ambisafe.co</groupId>
+    <groupId>co.ambisafe</groupId>
     <artifactId>web3-wallet-java-lib</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.1.2-SNAPSHOT</version>
 
     <repositories>
         <repository>
@@ -63,15 +63,37 @@
                         <configuration>
                             <artifactSet>
                                 <includes>
-                                    <include>*:*</include>
+                                    <include>org.ethereum:ethereumj-core</include>
+                                    <include>com.fasterxml.jackson.core:jackson-databind</include>
+                                    <include>com.fasterxml.jackson.core:jackson-annotations</include>
+                                    <include>com.fasterxml.jackson.core:jackson-core</include>
+                                    <include>com.madgag.spongycastle:core</include>
+                                    <include>com.madgag.spongycastle:prov</include>
+                                    <include>org.apache.commons:commons-lang3</include>
+                                    <include>org.slf4j:slf4j-api</include>
+                                    <include>org.slf4j:slf4j-log4j12</include>
+                                    <include>log4j:log4j</include>
                                 </includes>
-                                <excludes>
-                                    <!--exclude example-->
-                                    <!--<exclude>org.slf4j:slf4j-api</exclude>-->
-                                    <!--<exclude>org.slf4j:slf4j-log4j12</exclude>-->
-                                </excludes>
                             </artifactSet>
-                            <minimizeJar>true</minimizeJar>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>org.ethereum:ethereumj-core</artifact>
+                                    <includes>
+                                        <include>org/ethereum/core/*.class</include>
+                                        <include>org/ethereum/crypto/**</include>
+                                        <include>org/ethereum/util/*.class</include>
+                                    </includes>
+                                </filter>
+                            </filters>
+                            <!--<minimizeJar>true</minimizeJar>-->
                         </configuration>
                     </execution>
                 </executions>
