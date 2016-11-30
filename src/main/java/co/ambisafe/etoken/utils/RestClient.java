@@ -1,9 +1,6 @@
 package co.ambisafe.etoken.utils;
 
-import co.ambisafe.etoken.Account;
 import co.ambisafe.etoken.exceptions.RestClientException;
-import co.ambisafe.etoken.service.Keystore;
-import co.ambisafe.etoken.service.Tenant;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import javax.net.ssl.HttpsURLConnection;
