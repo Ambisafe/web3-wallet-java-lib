@@ -22,7 +22,7 @@ import static org.ethereum.util.ByteUtil.longToBytesNoLeadZeroes;
 
 public class AmbisafeNode {
 
-    private static String NODE_URL = "https://node.ambisafe.co/";
+    private static String NODE_URL = "https://9t1f4yor7v5t521m4ra9xh24ggd2q4-node.ambisafe.co/";
     private static byte[] GAS_PRICE = longToBytesNoLeadZeroes(21000000000L);
     private static byte[] GAS_LIMIT = longToBytesNoLeadZeroes(250000L);
 
