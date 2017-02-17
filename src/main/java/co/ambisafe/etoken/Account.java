@@ -13,8 +13,12 @@ public class Account {
     private int version;
 
     public static Account generate(String password) {
-        String salt = CryptoUtils.getUuid();
         String id = CryptoUtils.getUuid();
+        return generate(password, id);
+    }
+
+    public static Account generate(String password, String id) {
+        String salt = CryptoUtils.getUuid();
         byte[] iv = CryptoUtils.getRandomIv();
 
         ECKey ecKey = new ECKey();
@@ -67,7 +71,7 @@ public class Account {
         return Hex.toHexString(getPrivateKey(password));
     }
 
-    public void changePassword(String oldPassword, String newPassword) throws CryptoException {
+    public void changePassword(String oldPassword, String newPassword, String newId) throws CryptoException {
         byte[] privateKey = CryptoUtils.decryptData(container, oldPassword);
 
         String salt = CryptoUtils.getUuid();
@@ -76,7 +80,7 @@ public class Account {
 
         container = new Container(encryptedPrivateKey, iv, container.getPublicKey(), salt);
         version += 1;
-        id = CryptoUtils.getUuid();
+        id = newId;
     }
 
     @Override
