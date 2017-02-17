@@ -65,7 +65,7 @@ public class AmbisafeNode {
             simulateTransaction(senderAddress, encodedData, contractAddress);
 
             Transaction tx = new Transaction(
-                    longToBytesNoLeadZeroes(nonce.longValueExact()),
+                    longToBytesNoLeadZeroes(nonce.longValue()),
                     GAS_PRICE,
                     GAS_LIMIT,
                     Hex.decode(contractAddress.substring(2)),
@@ -129,7 +129,7 @@ public class AmbisafeNode {
             simulateTransaction(senderAddress, encodedData, contractAddress);
 
             Transaction tx = new Transaction(
-                    longToBytesNoLeadZeroes(nonce.longValueExact()),
+                    longToBytesNoLeadZeroes(nonce.longValue()),
                     GAS_PRICE,
                     GAS_LIMIT,
                     Hex.decode(contractAddress.substring(2)),
@@ -185,7 +185,7 @@ public class AmbisafeNode {
             simulateTransaction(senderAddress, encodedData, contractAddress);
 
             Transaction tx = new Transaction(
-                    longToBytesNoLeadZeroes(nonce.longValueExact()),
+                    longToBytesNoLeadZeroes(nonce.longValue()),
                     GAS_PRICE,
                     GAS_LIMIT,
                     Hex.decode(contractAddress.substring(2)),
@@ -249,7 +249,7 @@ public class AmbisafeNode {
             simulateTransaction(senderAddress, encodedData, contractAddress);
 
             Transaction tx = new Transaction(
-                    longToBytesNoLeadZeroes(nonce.longValueExact()),
+                    longToBytesNoLeadZeroes(nonce.longValue()),
                     GAS_PRICE,
                     GAS_LIMIT,
                     Hex.decode(contractAddress.substring(2)),
@@ -299,7 +299,7 @@ public class AmbisafeNode {
             BigInteger newAmount = new BigDecimal(amount).multiply(baseUnit).toBigIntegerExact();
 
             Transaction tx = new Transaction(
-                    longToBytesNoLeadZeroes(nonce.longValueExact()),
+                    longToBytesNoLeadZeroes(nonce.longValue()),
                     GAS_PRICE,
                     GAS_LIMIT,
                     Hex.decode(recipient.substring(2)),
